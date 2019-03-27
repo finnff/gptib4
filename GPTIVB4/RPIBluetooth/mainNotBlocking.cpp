@@ -69,21 +69,6 @@ int main()
             {
                 BP.reset_all();
             }
-            else if (input[0] = 'A')
-            {
-                BP.set_motor_power(PORT_A, -50);
-                BP.set_motor_power(PORT_B, -50);
-            }
-            else if (input[0] = 'B')
-            {
-                BP.set_motor_power(PORT_A, 50);
-                BP.set_motor_power(PORT_B, 50);
-            }
-            else if (input[0] = 'C')
-            {
-                BP.set_motor_power(PORT_A, -50);
-                BP.set_motor_power(PORT_B, 50);
-            }
 
             usleep(200000); // wacht 500 ms
         }
