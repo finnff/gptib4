@@ -38,7 +38,7 @@ int main()
         MessageBox &mb = clientsock->getMessageBox();
 
         string input;
-        while (mb.isRunning())
+        while (true)
         {
             input = mb.readMessage(); //blokkeert niet
             if (input != "")
@@ -85,7 +85,7 @@ int main()
                 BP.set_motor_power(PORT_B, 50);
             }
 
-            usleep(500000); // wacht 500 ms
+            usleep(200000); // wacht 500 ms
         }
 
         clientsock->close();
