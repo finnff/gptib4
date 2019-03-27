@@ -8,6 +8,21 @@ using namespace std;
 
 BrickPi3 BP;
 
+void TurnL90(){
+    BP.set_motor_dps(PORT_A, 275);
+    BP.set_motor_dps(PORT_B, -275);
+    sleep(1);
+    BP.reset_all();
+}
+
+void TurnR90(){
+    BP.set_motor_dps(PORT_A, -275);
+    BP.set_motor_dps(PORT_B, 275);
+    sleep(1);
+    BP.reset_all();
+}
+
+
 int main()
 {
     BP.offset_motor_encoder(PORT_A, BP.get_motor_encoder(PORT_A));
@@ -31,14 +46,12 @@ int main()
             }
             if (input == "RIGHT")
             {
-                BP.set_motor_power(PORT_A, -20);
-                BP.set_motor_power(PORT_B, 20);
+                TurnR90();
                 cout << input << endl;
             }
             else if (input == "LEFT")
             {
-                BP.set_motor_power(PORT_A, 20);
-                BP.set_motor_power(PORT_B, -20);
+                TurnL90();
                 cout << input << endl;
             }
             else if (input == "UP")
