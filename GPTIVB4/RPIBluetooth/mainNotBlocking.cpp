@@ -47,23 +47,23 @@ int main()
             }
             if (input[0] == 'R')
             {
-                BP.set_motor_power(PORT_A, -20);
-                BP.set_motor_power(PORT_B, 20);
+                BP.set_motor_power(PORT_A, -30);
+                BP.set_motor_power(PORT_B, 30);
             }
             else if (input[0] == 'L')
             {
-                BP.set_motor_power(PORT_A, 20);
-                BP.set_motor_power(PORT_B, -20);
+                BP.set_motor_power(PORT_A, 30);
+                BP.set_motor_power(PORT_B, -30);
             }
             else if (input[0] == 'U')
             {
-                BP.set_motor_power(PORT_A, -20);
-                BP.set_motor_power(PORT_B, -20);
+                BP.set_motor_power(PORT_A, -30);
+                BP.set_motor_power(PORT_B, -30);
             }
             else if (input[0] == 'D')
             {
-                BP.set_motor_power(PORT_A, 20);
-                BP.set_motor_power(PORT_B, 20);
+                BP.set_motor_power(PORT_A, 30);
+                BP.set_motor_power(PORT_B, 30);
             }
             else if (input[0] = 'F')
             {
@@ -71,23 +71,20 @@ int main()
             }
             else if (input[0] = 'A')
             {
-                BP.set_motor_power(PORT_A, -100);
-                BP.set_motor_power(PORT_B, -100);
+                BP.set_motor_power(PORT_A, -50);
+                BP.set_motor_power(PORT_B, -50);
             }
             else if (input[0] = 'B')
             {
-                BP.set_motor_power(PORT_A, 100);
-                BP.set_motor_power(PORT_B, 100);
+                BP.set_motor_power(PORT_A, 50);
+                BP.set_motor_power(PORT_B, 50);
             }
             else if (input[0] = 'C')
             {
-                BP.set_motor_power(PORT_A, -100);
-                BP.set_motor_power(PORT_B, 100);
+                BP.set_motor_power(PORT_A, -50);
+                BP.set_motor_power(PORT_B, 50);
             }
 
-            //doe andere dingen.
-            cout << ".";
-            cout.flush();
             usleep(500000); // wacht 500 ms
         }
 
