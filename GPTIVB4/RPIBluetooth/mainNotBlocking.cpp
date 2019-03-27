@@ -8,20 +8,21 @@ using namespace std;
 
 BrickPi3 BP;
 
-void TurnL90(){
+void TurnL90()
+{
     BP.set_motor_dps(PORT_A, 275);
     BP.set_motor_dps(PORT_B, -275);
     sleep(1);
     BP.reset_all();
 }
 
-void TurnR90(){
+void TurnR90()
+{
     BP.set_motor_dps(PORT_A, -275);
     BP.set_motor_dps(PORT_B, 275);
     sleep(1);
     BP.reset_all();
 }
-
 
 int main()
 {
@@ -42,36 +43,47 @@ int main()
             input = mb.readMessage(); //blokkeert niet
             if (input != "")
             {
-                cout << input << input.size() << flush;
-                for(int  i = 0; i < input.size(); i++)
-                {
-                    cout << (int) input[i] << endl;
-                }
-                
+                cout << input << endl;
             }
             if (input[0] == 'R')
             {
-                TurnR90();
-                cout << input << endl;
+                BP.set_motor_power(PORT_A, -20);
+                BP.set_motor_power(PORT_B, 20);
             }
             else if (input[0] == 'L')
             {
-                TurnL90();
-                cout << input << endl;
+                BP.set_motor_power(PORT_A, 20);
+                BP.set_motor_power(PORT_B, -20);
             }
-            else if (input == "UP")
+            else if (input[0] == 'U')
             {
                 BP.set_motor_power(PORT_A, -20);
                 BP.set_motor_power(PORT_B, -20);
-                cout << input << endl;
             }
-            else if (input == "DOWN")
+            else if (input[0] == 'D')
             {
                 BP.set_motor_power(PORT_A, 20);
                 BP.set_motor_power(PORT_B, 20);
-                cout << input << endl;
             }
-
+            else if (input = "F")
+            {
+                BP.reset_all();
+            }
+            else if (input = "A")
+            {
+                BP.set_motor_power(PORT_A, -100);
+                BP.set_motor_power(PORT_B, -100);
+            }
+            else if (input = "B")
+            {
+                BP.set_motor_power(PORT_A, 100);
+                BP.set_motor_power(PORT_B, 100);
+            }
+            else if (input = "C")
+            {
+                BP.set_motor_power(PORT_A, -100);
+                BP.set_motor_power(PORT_B, 100);
+            }
 
             //doe andere dingen.
             cout << ".";
