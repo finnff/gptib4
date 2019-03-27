@@ -27,7 +27,7 @@ int main()
             input = mb.readMessage(); //blokkeert niet
             if (input != "")
             {
-                cout << input << endl;
+                cout << input << flush;
             }
             if (input == "RIGHT")
             {
