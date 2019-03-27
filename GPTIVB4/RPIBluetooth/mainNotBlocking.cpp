@@ -43,6 +43,11 @@ int main()
             if (input != "")
             {
                 cout << input << input.size() << flush;
+                for(int  i = 0; i < input.size(); i++)
+                {
+                    cout << (int) input[i] << endl;
+                }
+                
             }
             if (input == "RIGHT")
             {
