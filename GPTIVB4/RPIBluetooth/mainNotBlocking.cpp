@@ -29,25 +29,25 @@ int main()
             {
                 BP.set_motor_power(PORT_A, -20);
                 BP.set_motor_power(PORT_B, 20);
+                cout << input << endl;
             }
             else if (input == "LEFT")
             {
                 BP.set_motor_power(PORT_A, 20);
                 BP.set_motor_power(PORT_B, -20);
+                cout << input << endl;
             }
             else if (input == "UP")
             {
                 BP.set_motor_power(PORT_A, -20);
                 BP.set_motor_power(PORT_B, -20);
+                cout << input << endl;
             }
             else if (input == "DOWN")
             {
                 BP.set_motor_power(PORT_A, 20);
                 BP.set_motor_power(PORT_B, 20);
-            }
-            else if (input == "MIDDLE")
-            {
-                BP.reset_all();
+                cout << input << endl;
             }
 
             //doe andere dingen.
