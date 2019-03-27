@@ -30,27 +30,27 @@ int main()
                 cout << endl
                      << input << endl;
             }
-            if (input = "RIGHT")
+            if (input == "RIGHT")
             {
                 BP.set_motor_power(PORT_A, -20);
                 BP.set_motor_power(PORT_B, 20);
             }
-            else if (input = "LEFT")
+            else if (input == "LEFT")
             {
                 BP.set_motor_power(PORT_A, 20);
                 BP.set_motor_power(PORT_B, -20);
             }
-            else if (input = "UP")
+            else if (input == "UP")
             {
                 BP.set_motor_power(PORT_A, -20);
                 BP.set_motor_power(PORT_B, -20);
             }
-            else if (input = "DOWN")
+            else if (input == "DOWN")
             {
                 BP.set_motor_power(PORT_A, 20);
                 BP.set_motor_power(PORT_B, 20);
             }
-            else if (input = "MIDDLE")
+            else if (input == "MIDDLE")
             {
                 BP.reset_all();
             }
