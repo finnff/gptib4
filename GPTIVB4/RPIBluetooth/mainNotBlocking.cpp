@@ -7,6 +7,9 @@ using namespace std;
 
 BrickPi3 BP;
 
+
+
+
 int main() {
     BP.offset_motor_encoder(PORT_A, BP.get_motor_encoder(PORT_A));
     BP.offset_motor_encoder(PORT_B, BP.get_motor_encoder(PORT_B));
