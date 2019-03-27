@@ -65,21 +65,21 @@ int main()
                 BP.set_motor_power(PORT_A, 20);
                 BP.set_motor_power(PORT_B, 20);
             }
-            else if (input[0] = "F")
+            else if (input[0] = 'F')
             {
                 BP.reset_all();
             }
-            else if (input[0] = "A")
+            else if (input[0] = 'A')
             {
                 BP.set_motor_power(PORT_A, -100);
                 BP.set_motor_power(PORT_B, -100);
             }
-            else if (input[0] = "B")
+            else if (input[0] = 'B')
             {
                 BP.set_motor_power(PORT_A, 100);
                 BP.set_motor_power(PORT_B, 100);
             }
-            else if (input[0] = "C")
+            else if (input[0] = 'C')
             {
                 BP.set_motor_power(PORT_A, -100);
                 BP.set_motor_power(PORT_B, 100);
