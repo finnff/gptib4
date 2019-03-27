@@ -25,11 +25,6 @@ int main()
         while (mb.isRunning())
         {
             input = mb.readMessage(); //blokkeert niet
-            if (input != "")
-            {
-                cout << endl
-                     << input << endl;
-            }
             if (input == "RIGHT")
             {
                 BP.set_motor_power(PORT_A, -20);
