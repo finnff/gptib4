@@ -49,12 +49,12 @@ int main()
                 }
                 
             }
-            if (input == "RIGHT")
+            if (input[0] == 'R')
             {
                 TurnR90();
                 cout << input << endl;
             }
-            else if (input == "LEFT")
+            else if (input[0] == 'L')
             {
                 TurnL90();
                 cout << input << endl;
