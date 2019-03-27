@@ -3,6 +3,7 @@
 #include "BrickPi3.h" // for BrickPi3
 #include <iostream>
 #include <signal.h>
+#include <string>
 using namespace std;
 
 BrickPi3 BP;
@@ -52,21 +53,6 @@ int main()
             else if (input = "MIDDLE")
             {
                 BP.reset_all();
-            }
-            else if (input = "A")
-            {
-                BP.set_motor_power(PORT_A, -100);
-                BP.set_motor_power(PORT_B, -100);
-            }
-            else if (input = "B")
-            {
-                BP.set_motor_power(PORT_A, 100);
-                BP.set_motor_power(PORT_B, 100);
-            }
-            else if (input = "C")
-            {
-                BP.set_motor_power(PORT_A, -100);
-                BP.set_motor_power(PORT_B, 100);
             }
 
             //doe andere dingen.
