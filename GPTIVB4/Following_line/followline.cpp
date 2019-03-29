@@ -27,15 +27,15 @@ int main(){
         float waarde;
         if(BP.get_sensor(PORT_1, Light1) == 0){
             waarde = Light1.reflected;
-            if(waarde >1800 && waarde < 2000){
-                BP.set_motor_dps(PORT_A, -400);
-                BP.set_motor_dps(PORT_B, -400);
-            }else if(waarde < 1800){//links
-                BP.set_motor_dps(PORT_A, 200);
-                BP.set_motor_dps(PORT_B, -200);
-            }else if(waarde > 2000){//rechts
-                BP.set_motor_dps(PORT_A, -200);
-                BP.set_motor_dps(PORT_B, 200);
+            if(waarde >1950 && waarde < 2150){
+                BP.set_motor_dps(PORT_A, -300);
+                BP.set_motor_dps(PORT_B, -300);
+            }else if(waarde < 1950){//links
+                BP.set_motor_dps(PORT_A, 300);
+                BP.set_motor_dps(PORT_B, -300);
+            }else if(waarde > 2150){//rechts
+                BP.set_motor_dps(PORT_A, -300);
+                BP.set_motor_dps(PORT_B, 300);
             }
         }
 
