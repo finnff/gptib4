@@ -40,8 +40,8 @@ int main(){
 		    cout << "Ultrasonic sensor (S2): "   << Ultrasonic2.cm << "cm" << endl;
             curr_distance = Ultrasonic2.cm;
             if(curr_distance>10){
-                BP.set_motor_power(PORT_B, -30);
-                BP.set_motor_power(PORT_A, -30);
+                BP.set_motor_power(PORT_B, -50);
+                BP.set_motor_power(PORT_A, -50);
             }
             if(curr_distance<=10){
                 BP.set_motor_power(PORT_B, 0);
