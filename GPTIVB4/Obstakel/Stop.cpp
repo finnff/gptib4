@@ -37,27 +37,17 @@ int main(){
     float curr_distance;
 
     while(true){
+        DriveForward();
         if(BP.get_sensor(PORT_2, Ultrasonic2) == 0){
 		    cout << "Ultrasonic sensor (S2): "   << Ultrasonic2.cm << "cm" << endl;
             curr_distance = Ultrasonic2.cm;
             sleep(1);
         }
-        
-
-    }
-    while(true){
         if(curr_distance<=10){
             BrakeBoth();
         }
-        else{
-            DriveForward();
-        }
+        
     }
-
-
-
-
-
 }
 
 
