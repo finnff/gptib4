@@ -34,22 +34,14 @@ int main(){
 
     sensor_ultrasonic_t Ultrasonic2;
     float curr_distance = 15.0;
-    bool Obstruction = false;
 
     while(true){
         curr_distance = Ultrasonic2.cm;
-        if(curr_distance>10){
-            Obstruction = false;
-        }
-        if(curr_distance<=10){
-            Obstruction = true;
-        }
-
-        while(Obstruction == true){
-            BrakeBoth();
-        }
-        while(Obstruction == false){
+        while(curr_distance>10){
             DriveForward();
+        }
+        while(curr_distance<=10){
+            BrakeBoth();
         }
     }
 }
