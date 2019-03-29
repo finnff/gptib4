@@ -33,18 +33,26 @@ int main(){
     BP.set_sensor_type(PORT_2, SENSOR_TYPE_NXT_ULTRASONIC);
 
     sensor_ultrasonic_t Ultrasonic2;
-    float curr_distance = 15.0;
+    float curr_distance =15.0;
 
     while(true){
-        curr_distance = Ultrasonic2.cm;
-        while(curr_distance>10){
-            DriveForward();
+        if(BP.get_sensor(PORT_2, Ultrasonic2) == 0){
+		    cout << "Ultrasonic sensor (S2): "   << Ultrasonic2.cm << "cm" << endl;
+            curr_distance = Ultrasonic2.cm;
+            sleep(0.5);
         }
-        while(curr_distance<=10){
+        if(curr_distance>10){
+            BP.set_motor_power(PORT_B, -30);
+            BP.set_motor_power(PORT_A, -30);
+        }
+        if(curr_distance<=10){
             BrakeBoth();
+            break;
         }
+        
     }
 }
+
 
 
 
