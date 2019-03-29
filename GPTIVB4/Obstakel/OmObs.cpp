@@ -12,13 +12,40 @@ BrickPi3 BP;
 void exit_signal_handler(int signo);
 
 void DriveForward(){
-    BP.set_motor_power(PORT_A, -30);
-    BP.set_motor_power(PORT_B, -30);
+    BP.set_motor_power(PORT_A, -50);
+    BP.set_motor_power(PORT_B, -50);
 }
 
 void BrakeBoth(){
     BP.set_motor_power(PORT_A, 0);
     BP.set_motor_power(PORT_B, 0);
+}
+
+void TurnL90(){
+    BP.set_motor_dps(PORT_A, 275);
+    BP.set_motor_dps(PORT_B, -275);
+    sleep(1);
+    BP.reset_all();
+}
+
+void TurnR90(){
+    BP.set_motor_dps(PORT_A, -275);
+    BP.set_motor_dps(PORT_B, 275);
+    sleep(1);
+    BP.reset_all();
+}
+
+void OBSENC(){
+    TurnL90();
+    DriveForward();
+    sleep(3);
+    TurnR90();
+    DriveForward();
+    sleep(3);
+    TurnR90();
+    DriveForward();
+    sleep(3);
+    TurnL90();
 }
 
 
@@ -43,8 +70,7 @@ int main(){
                 BP.set_motor_power(PORT_A, -50);
             }
             if(curr_distance<=10){
-                BP.set_motor_power(PORT_B, 0);
-                BP.set_motor_power(PORT_A, 0);
+                OBSENC();
             }
         }
         
