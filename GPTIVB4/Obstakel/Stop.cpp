@@ -34,24 +34,25 @@ int main(){
 
     sensor_ultrasonic_t Ultrasonic2;
     float curr_distance = 15.0;
+    bool Obstruction = false;
 
     while(true){
-        if(BP.get_sensor(PORT_2, Ultrasonic2) == 0){
-		    cout << "Ultrasonic sensor (S2): "   << Ultrasonic2.cm << "cm" << endl;
-            curr_distance = Ultrasonic2.cm;
-            sleep(0.5);
-        }
+        curr_distance = Ultrasonic2.cm;
         if(curr_distance>10){
-            BP.set_motor_power(PORT_B, -30);
-            BP.set_motor_power(PORT_A, -30);
+            Obstruction = false;
         }
         if(curr_distance<=10){
+            Obstruction = true;
+        }
+
+        while(Obstruction == true){
             BrakeBoth();
         }
-        
+        while(Obstruction == false){
+            DriveForward();
+        }
     }
 }
-
 
 
 
