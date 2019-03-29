@@ -8,20 +8,21 @@ using namespace std;
 
 BrickPi3 BP;
 
-void TurnL90(){
+void TurnL90()
+{
     BP.set_motor_dps(PORT_A, 275);
     BP.set_motor_dps(PORT_B, -275);
     sleep(1);
     BP.reset_all();
 }
 
-void TurnR90(){
+void TurnR90()
+{
     BP.set_motor_dps(PORT_A, -275);
     BP.set_motor_dps(PORT_B, 275);
     sleep(1);
     BP.reset_all();
 }
-
 
 int main()
 {
@@ -37,52 +38,56 @@ int main()
         MessageBox &mb = clientsock->getMessageBox();
 
         string input;
-        while (mb.isRunning())
+        while (true)
         {
             input = mb.readMessage(); //blokkeert niet
             if (input != "")
             {
                 cout << input << endl;
             }
-            if (input == "RIGHT")
+            if (input[0] == 'R')
             {
-                TurnR90();
-                cout << input << endl;
+                BP.set_motor_power(PORT_A, -30);
+                BP.set_motor_power(PORT_B, 30);
             }
-            else if (input == "LEFT")
+            else if (input[0] == 'L')
             {
-                TurnL90();
-                cout << input << endl;
+                BP.set_motor_power(PORT_A, 30);
+                BP.set_motor_power(PORT_B, -30);
             }
-            else if (input == "UP")
+            else if (input[0] == 'U')
             {
-                BP.set_motor_power(PORT_A, -20);
-                BP.set_motor_power(PORT_B, -20);
-                cout << input << endl;
+                BP.set_motor_power(PORT_A, -30);
+                BP.set_motor_power(PORT_B, -30);
             }
-            else if (input == "DOWN")
+            else if (input[0] == 'D')
             {
-                BP.set_motor_power(PORT_A, 20);
-                BP.set_motor_power(PORT_B, 20);
-                cout << input << endl;
+                BP.set_motor_power(PORT_A, 30);
+                BP.set_motor_power(PORT_B, 30);
+            }
+            else if (input[0] = 'F')
+            {
+                BP.reset_all();
+            }
+            else if (input[0] = 'A')
+            {
+                BP.set_motor_power(PORT_A, -50);
+                BP.set_motor_power(PORT_B, -50);
+            }
+            else if (input[0] = 'B')
+            {
+                BP.set_motor_power(PORT_A, 50);
+                BP.set_motor_power(PORT_B, 50);
+            }
+            else if (input[0] = 'C')
+            {
+                BP.set_motor_power(PORT_A, -50);
+                BP.set_motor_power(PORT_B, 50);
             }
 
-
-            //doe andere dingen.
-            cout << ".";
-            cout.flush();
-            usleep(500000); // wacht 500 ms
+            usleep(200000); // wacht 500 ms
         }
 
         clientsock->close();
-    }
-}
-
-void exit_signal_handler(int signo)
-{
-    if (signo == SIGINT)
-    {
-        BP.reset_all(); // Reset everything so there are no run-away motors
-        exit(-2);
     }
 }
