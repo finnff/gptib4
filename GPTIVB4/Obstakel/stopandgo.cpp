@@ -39,14 +39,13 @@ int main(){
         while(BP.get_sensor(PORT_2, Ultrasonic2) == 0){
 		    cout << "Ultrasonic sensor (S2): "   << Ultrasonic2.cm << "cm" << endl;
             curr_distance = Ultrasonic2.cm;
-            sleep(0.5);
-        }
-        if(curr_distance>10){
-            BP.set_motor_power(PORT_B, -30);
-            BP.set_motor_power(PORT_A, -30);
-        }
-        if(curr_distance<=10){
-            BP.reset_all();
+            if(curr_distance>10){
+                BP.set_motor_power(PORT_B, -30);
+                BP.set_motor_power(PORT_A, -30);
+            }
+            if(curr_distance<=10){
+                BP.reset_all();
+            }
         }
         
     }
