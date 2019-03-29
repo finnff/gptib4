@@ -44,7 +44,8 @@ int main(){
                 BP.set_motor_power(PORT_A, -30);
             }
             if(curr_distance<=10){
-                BP.reset_all();
+                BP.set_motor_power(PORT_B, 0);
+                BP.set_motor_power(PORT_A, 0);
             }
         }
         
