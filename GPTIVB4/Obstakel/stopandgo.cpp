@@ -46,8 +46,7 @@ int main(){
             BP.set_motor_power(PORT_A, -30);
         }
         if(curr_distance<=10){
-            BrakeBoth();
-            break;
+            BP.reset_all();
         }
         
     }
