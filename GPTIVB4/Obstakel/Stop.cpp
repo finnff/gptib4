@@ -26,15 +26,14 @@ void BrakeBoth(){
 int main(){
   signal(SIGINT, exit_signal_handler); // register the exit function for Ctrl+C
 
-  BP.detect(); // Make sure that the BrickPi3 is communicating and that the firmware is compatible with the drivers.
+    BP.detect(); // Make sure that the BrickPi3 is communicating and that the firmware is compatible with the drivers.
 
     BP.offset_motor_encoder(PORT_A, BP.get_motor_encoder(PORT_A));
     BP.offset_motor_encoder(PORT_B, BP.get_motor_encoder(PORT_B));
     BP.set_sensor_type(PORT_2, SENSOR_TYPE_NXT_ULTRASONIC);
 
-    sensor_light_t      Light1;
     sensor_ultrasonic_t Ultrasonic2;
-    float curr_distance;
+    float curr_distance = 15.0;
 
     while(true){
         if(BP.get_sensor(PORT_2, Ultrasonic2) == 0){
