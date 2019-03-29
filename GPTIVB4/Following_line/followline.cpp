@@ -26,16 +26,16 @@ int main(){
     while(true){
         float waarde;
         if(BP.get_sensor(PORT_1, Light1) == 0){
-            getline(Light1.reflected, waarde);
+            waarde = Light1.reflected;
             if(waarde >1800 && waarde < 2000){
-                BP.set_motor_dps(PORT_A, 2);
-                BP.set_motor_dps(PORT_B, 2);
+                BP.set_motor_dps(PORT_A, 200);
+                BP.set_motor_dps(PORT_B, 200);
             }else if(waarde < 1800){//links
-                BP.set_motor_dps(PORT_A, 2);
-                BP.set_motor_dps(PORT_B, -2);
+                BP.set_motor_dps(PORT_A, 20);
+                BP.set_motor_dps(PORT_B, -20);
             }else if(waarde > 2000){//rechts
-                BP.set_motor_dps(PORT_A, -2);
-                BP.set_motor_dps(PORT_B, 2);
+                BP.set_motor_dps(PORT_A, -20);
+                BP.set_motor_dps(PORT_B, 20);
             }
         }
 
