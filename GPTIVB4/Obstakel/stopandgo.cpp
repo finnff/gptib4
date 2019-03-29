@@ -36,7 +36,7 @@ int main(){
     float curr_distance =15.0;
 
     while(true){
-        if(BP.get_sensor(PORT_2, Ultrasonic2) == 0){
+        while(BP.get_sensor(PORT_2, Ultrasonic2) == 0){
 		    cout << "Ultrasonic sensor (S2): "   << Ultrasonic2.cm << "cm" << endl;
             curr_distance = Ultrasonic2.cm;
             sleep(0.5);
