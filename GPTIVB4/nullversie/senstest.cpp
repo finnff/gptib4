@@ -17,18 +17,26 @@ int main(){
   BP.detect(); // Make sure that the BrickPi3 is communicating and that the firmware is compatible with the drivers.
 
 
-
-  BP.set_sensor_type(PORT_1, SENSOR_TYPE_NXT_LIGHT_ON);
+  BP.set_sensor_type(PORT_1, SENSOR_TYPE_NXT_COLOR_FULL);
+  BP.set_sensor_type(PORT_3, SENSOR_TYPE_NXT_LIGHT_ON);
   BP.set_sensor_type(PORT_2, SENSOR_TYPE_NXT_ULTRASONIC);
 
-  sensor_light_t      Light1;
+  sensor_color_t      Color1;
+  sensor_light_t      Light3;
   sensor_ultrasonic_t Ultrasonic2;
 
   while(true){
+  if(BP.get_sensor(PORT_1, Color1) == 0){
+		cout << "Color sensor (S1): detected  " << (int) Color1.color;
+		cout << " red" << setw(4) << Color1.reflected_red;
+		cout << " green" << setw(4) << Color1.reflected_green;
+		cout << " blue" << setw(4) << Color1.reflected_blue;
+		cout << " ambient" << setw(4) << Color1.ambient << endl;
+	}
     if(BP.get_sensor(PORT_2, Ultrasonic2) == 0){
 		  cout << "Ultrasonic sensor (S2): "   << Ultrasonic2.cm << "cm" << endl;
     }
-    if(BP.get_sensor(PORT_1, Light1) == 0){
+    if(BP.get_sensor(PORT_3, Light3) == 0){
 		  cout << "Light sensor (S3): reflected " << setw(4) << Light1.reflected << endl;
     }
     sleep(1);
