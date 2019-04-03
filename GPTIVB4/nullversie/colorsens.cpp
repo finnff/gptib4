@@ -23,7 +23,6 @@ vector <int> kleurscan(){
         if(BP.get_sensor(PORT_1, Color1) == 0){
             BP.set_motor_dps(PORT_B, -60); //rotation = ~2.5 sec
             BP.set_motor_dps(PORT_C, 180);
-            signal(SIGINT, exit_signal_handler);
             int red = 0;
             int green = 0;
             int blue = 0;
@@ -74,6 +73,7 @@ void exit_signal_handler(int signo){
 
 int main()
 {
+    signal(SIGINT, exit_signal_handler); // register the exit function for Ctrl+C
     vector<int> printvec = kleurscan();
     for(int i=0; i<printvec.size(); i++){
     cout << printvec[i]<< endl;
