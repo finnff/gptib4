@@ -9,8 +9,10 @@ BrickPi3 BP; // Create a BrickPi3 instance with the default address of 1
 void exit_signal_handler(int signo);
 
 void Draaitest(){
-  BP.set_motor_power(PORT_B, -20);
-  BP.set_motor_power(PORT_C, -20);
+  BP.set_motor_power(PORT_B, 10);
+  sleep(1);
+  BP.set_motor_power(PORT_B, -40);
+  BP.set_motor_power(PORT_C, 30);
   usleep(3000000);//3 Sec
 }
 
