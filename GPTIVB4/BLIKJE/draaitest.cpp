@@ -25,7 +25,7 @@ int main(){
   signal(SIGINT, exit_signal_handler); // register the exit function for Ctrl+C
   BP.detect(); // Make sure that the BrickPi3 is communicating and that the firmware is compatible with the drivers.
   
-  BP.offset_motor_encoder(PORT_B, BP.get_motor_encoder(PORT_C));
+  BP.offset_motor_encoder(PORT_B, BP.get_motor_encoder(PORT_B));
   BP.offset_motor_encoder(PORT_C, BP.get_motor_encoder(PORT_C));
 
   Draaitest();
