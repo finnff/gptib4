@@ -22,15 +22,14 @@ vector int kleurscan()
     int green = 0;
     int blue = 0;
     int ambient = 0;
-    while(/*motors draaien*/){
+    while(time <= 36){
         int aantal++;
         red += Color1.reflected_red;
         green += Color1.reflected_green;
         blue += Color1.reflected_blue;
         ambient += Color1.ambient;
-
-        cout << test << endl;
-        sleep(1);
+        usleep(70000);
+        int time++;
     }
     int red = red / aantal;
     int green = green / aantal;
