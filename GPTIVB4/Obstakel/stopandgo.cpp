@@ -30,19 +30,20 @@ int main(){
     BP.offset_motor_encoder(PORT_A, BP.get_motor_encoder(PORT_A));
     BP.offset_motor_encoder(PORT_B, BP.get_motor_encoder(PORT_B));
     BP.set_sensor_type(PORT_2, SENSOR_TYPE_NXT_ULTRASONIC);
-
     sensor_ultrasonic_t Ultrasonic2;
-    float curr_distance =15.0;
+
+
+    float curr_distance =15.0; // start distance;
 
     while(true){
         while(BP.get_sensor(PORT_2, Ultrasonic2) == 0){
 		    cout << "Ultrasonic sensor (S2): "   << Ultrasonic2.cm << "cm" << endl;
             curr_distance = Ultrasonic2.cm;
-            if(curr_distance>10){
+            if(curr_distance>10){//drive forward
                 BP.set_motor_power(PORT_B, -50);
                 BP.set_motor_power(PORT_A, -50);
             }
-            if(curr_distance<=10){
+            if(curr_distance<=10){//start braking
                 BP.set_motor_power(PORT_B, 0);
                 BP.set_motor_power(PORT_A, 0);
             }
