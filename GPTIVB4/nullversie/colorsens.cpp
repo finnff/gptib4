@@ -43,8 +43,7 @@ vector <int> kleurscan(){
             blue = blue / aantal;
             ambient = ambient / aantal;
             vector <int> rgb = {red, green, blue, ambient};
-            BP.set_motor_dps(PORT_B, 0); //rotation = ~2.5 sec
-            BP.set_motor_dps(PORT_C, 0);
+            BP.reset_all();    // Reset everything so there are no run-away motors
             return rgb;
         }
     }
