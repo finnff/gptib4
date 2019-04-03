@@ -19,6 +19,8 @@ vector <int> kleurscan(){
     sensor_color_t      Color1;
     while(true){
         if(BP.get_sensor(PORT_1, Color1) == 0){
+            BP.set_motor_dps(PORT_B, -60); //rotation = ~2.5 sec
+            BP.set_motor_dps(PORT_C, 180);
             signal(SIGINT, exit_signal_handler);
             int red = 0;
             int green = 0;
@@ -39,8 +41,9 @@ vector <int> kleurscan(){
             green = green / aantal;
             blue = blue / aantal;
             ambient = ambient / aantal;
-            cout << red << " "<< green << " "<< blue << " "<< ambient << " "<< endl;
             vector <int> rgb = {red, green, blue, ambient};
+            BP.set_motor_dps(PORT_B, 0); //rotation = ~2.5 sec
+            BP.set_motor_dps(PORT_C, 0);
             return rgb;
         }
     }
