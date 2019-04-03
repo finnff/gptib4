@@ -38,7 +38,9 @@ vector <int> kleurscan(){
         green = green / aantal;
         blue = blue / aantal;
         ambient = ambient / aantal;
-        vector <int> rgb = {red, green, blue, ambient};
+        cout << red << green << blue << ambient << endl;
+        //vector <int> rgb = {red, green, blue, ambient};
+        vector <int> rgb = {};
         return rgb;
     }
 }
@@ -67,8 +69,8 @@ void exit_signal_handler(int signo){
 int main()
 {
     vector<int> printvec = kleurscan();
-    // for(int i=0; i<printvec.size(); i++){
-    //     cout << printvec[i]<< endl;
-    // }
+    for(int i=0; i<printvec.size(); i++){
+        cout << printvec[i]<< endl;
+    }
 }
 
