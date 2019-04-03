@@ -13,30 +13,34 @@ void exit_signal_handler(int signo);
 // waarde bestand importeren
 
 
-vector int kleurscan()
-{
-    signal(SIGINT, exit_signal_handler)
+vector <int> kleurscan(){
     BP.detect();
-    BP.set_sensor_type(PORT_1, SENSOR_TYPE_NXT_COLLOR_FULL);
-    int red = 0;
-    int green = 0;
-    int blue = 0;
-    int ambient = 0;
-    while(time <= 36){
-        int aantal++;
-        red += Color1.reflected_red;
-        green += Color1.reflected_green;
-        blue += Color1.reflected_blue;
-        ambient += Color1.ambient;
-        usleep(70000);
-        int time++;
+    BP.set_sensor_type(PORT_1, SENSOR_TYPE_NXT_COLOR_FULL);
+    sensor_color_t      Color1;
+    if(BP.get_sensor(PORT_1, Color1) == 0){
+        signal(SIGINT, exit_signal_handler);
+        int red = 0;
+        int green = 0;
+        int blue = 0;
+        int ambient = 0;
+        int time = 0;
+        int aantal =0;
+        while(time <= 36){
+            aantal++;
+            red += Color1.reflected_red;
+            green += Color1.reflected_green;
+            blue += Color1.reflected_blue;
+            ambient += Color1.ambient;
+            usleep(70000);
+            time++;
+        }
+        red = red / aantal;
+        green = green / aantal;
+        blue = blue / aantal;
+        ambient = ambient / aantal;
+        vector <int> rgb = {red, green, blue, ambient};
+        return rgb;
     }
-    int red = red / aantal;
-    int green = green / aantal;
-    int blue = blue / aantal;
-    int ambient = ambient / aantal;
-    vector <int> rgb = {red, green, blue, ambient}
-    return rgb;
 }
 
 // int kleurcheck(k)
@@ -52,15 +56,18 @@ vector int kleurscan()
 //     }
 // }
 
-int main()
-{
-    cout << kleurscan();
-}
-
 
 void exit_signal_handler(int signo){
     if(signo == SIGINT){
         BP.reset_all();
         exit(-2);
+    }
+}
+
+int main()
+{
+    vector<int> printvec = kleurscan();
+    for(int i=0; i<printvec.size(); i++){
+        cout << printvec[i]<< endl;
     }
 }
