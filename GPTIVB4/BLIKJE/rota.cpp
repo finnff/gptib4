@@ -9,9 +9,7 @@ BrickPi3 BP; // Create a BrickPi3 instance with the default address of 1
 void exit_signal_handler(int signo);
 
 void Draaitest(){
-  BP.set_motor_dps(PORT_B, 140);
-  sleep(1);
-  BP.set_motor_dps(PORT_B, -140);
+  BP.set_motor_dps(PORT_B, -90); //rotation = ~2.5 sec
   BP.set_motor_dps(PORT_C, 180);
   sleep(300);//3 Sec
 }

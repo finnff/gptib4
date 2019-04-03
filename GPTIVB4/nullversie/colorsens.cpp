@@ -13,7 +13,7 @@ void exit_signal_handler(int signo);
 // waarde bestand importeren
 
 
-vector int kleurscan()
+vector <int> kleurscan()
 {
     signal(SIGINT, exit_signal_handler)
     BP.detect();
@@ -54,7 +54,7 @@ vector int kleurscan()
 
 int main()
 {
-    cout << kleurscan();
+    cout << kleurscan() << endl;
 }
 
 
