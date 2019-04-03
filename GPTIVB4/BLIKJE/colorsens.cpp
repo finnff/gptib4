@@ -16,10 +16,13 @@ void exit_signal_handler(int signo);
 vector <int> kleurscan(){
     BP.detect();
     BP.set_sensor_type(PORT_1, SENSOR_TYPE_NXT_COLOR_FULL);
+    BP.offset_motor_encoder(PORT_B, BP.get_motor_encoder(PORT_B));
+    BP.offset_motor_encoder(PORT_C, BP.get_motor_encoder(PORT_C));
     sensor_color_t      Color1;
     while(true){
         if(BP.get_sensor(PORT_1, Color1) == 0){
-            signal(SIGINT, exit_signal_handler);
+            BP.set_motor_dps(PORT_B, -60); //rotation = ~2.5 sec
+            BP.set_motor_dps(PORT_C, 180);
             int red = 0;
             int green = 0;
             int blue = 0;
@@ -27,7 +30,6 @@ vector <int> kleurscan(){
             int time = 0;
             int aantal =0;
             while(time <= 36){
-		cout << aantal << endl;
                 aantal++;
                 red += Color1.reflected_red;
                 green += Color1.reflected_green;
@@ -40,8 +42,9 @@ vector <int> kleurscan(){
             green = green / aantal;
             blue = blue / aantal;
             ambient = ambient / aantal;
-            cout << red << " "<< green << " "<< blue << " "<< ambient << " "<< endl;
             vector <int> rgb = {red, green, blue, ambient};
+            BP.set_motor_dps(PORT_B, 0); //rotation = ~2.5 sec
+            BP.set_motor_dps(PORT_C, 0);
             return rgb;
         }
     }
@@ -70,6 +73,7 @@ void exit_signal_handler(int signo){
 
 int main()
 {
+    signal(SIGINT, exit_signal_handler); // register the exit function for Ctrl+C
     vector<int> printvec = kleurscan();
     for(int i=0; i<printvec.size(); i++){
     cout << printvec[i]<< endl;
