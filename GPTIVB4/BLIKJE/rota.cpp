@@ -11,7 +11,9 @@ void exit_signal_handler(int signo);
 void Draaitest(){
   BP.set_motor_dps(PORT_B, -90); //rotation = ~2.5 sec
   BP.set_motor_dps(PORT_C, 180);
-  sleep(300);//3 Sec
+  sleep(4);//4 Sec
+  BP.set_motor_dps(PORT_C, 0);
+  BP.set_motor_dps(PORT_B, 0);
 }
 
 void exit_signal_handler(int signo){
