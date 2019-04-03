@@ -67,8 +67,8 @@ void exit_signal_handler(int signo){
 int main()
 {
     vector<int> printvec = kleurscan();
-    for(int i=0; i<printvec.size(); i++){
-        cout << printvec[i]<< endl;
-    }
+    // for(int i=0; i<printvec.size(); i++){
+    //     cout << printvec[i]<< endl;
+    // }
 }
 
