@@ -16,6 +16,8 @@ void exit_signal_handler(int signo);
 vector <int> kleurscan(){
     BP.detect();
     BP.set_sensor_type(PORT_1, SENSOR_TYPE_NXT_COLOR_FULL);
+    BP.offset_motor_encoder(PORT_B, BP.get_motor_encoder(PORT_B));
+    BP.offset_motor_encoder(PORT_C, BP.get_motor_encoder(PORT_C));
     sensor_color_t      Color1;
     while(true){
         if(BP.get_sensor(PORT_1, Color1) == 0){
