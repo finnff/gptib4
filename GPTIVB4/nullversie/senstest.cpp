@@ -28,16 +28,16 @@ int main(){
   while(true){
   if(BP.get_sensor(PORT_1, Color1) == 0){
 		cout << "Color sensor (S1): detected  " << (int) Color1.color;
-		cout << " red" << setw(4) << Color1.reflected_red;
-		cout << " green" << setw(4) << Color1.reflected_green;
-		cout << " blue" << setw(4) << Color1.reflected_blue;
-		cout << " ambient" << setw(4) << Color1.ambient << endl;
+		cout << " R:" << setw(4) << Color1.reflected_red;
+		cout << " G:" << setw(4) << Color1.reflected_green;
+		cout << " B:" << setw(4) << Color1.reflected_blue;
+		cout << "ambient" << setw(4) << Color1.ambient << endl;
 	}
     if(BP.get_sensor(PORT_2, Ultrasonic2) == 0){
 		  cout << "Ultrasonic sensor (S2): "   << Ultrasonic2.cm << "cm" << endl;
     }
     if(BP.get_sensor(PORT_3, Light3) == 0){
-		  cout << "Light sensor (S3): reflected " << setw(4) << Light1.reflected << endl;
+		  
     }
     sleep(1);
   }
