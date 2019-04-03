@@ -21,7 +21,7 @@ vector <int> kleurscan(){
     sensor_color_t      Color1;
     while(true){
         if(BP.get_sensor(PORT_1, Color1) == 0){
-            BP.set_motor_dps(PORT_B, -60); //rotation = ~2.5 sec
+            BP.set_motor_power(PORT_B, -60); //rotation = ~2.5 sec
             BP.set_motor_dps(PORT_C, 180);
             int red = 0;
             int green = 0;
@@ -43,8 +43,7 @@ vector <int> kleurscan(){
             blue = blue / aantal;
             ambient = ambient / aantal;
             vector <int> rgb = {red, green, blue, ambient};
-            BP.set_motor_dps(PORT_B, 0); //rotation = ~2.5 sec
-            BP.set_motor_dps(PORT_C, 0);
+            BP.reset_all();    // Reset everything so there are no run-away motors
             return rgb;
         }
     }
