@@ -76,3 +76,12 @@ int kcheck(rgb)
         } 
     }
 }
+
+int main()
+{
+    signal(SIGINT, exit_signal_handler); // register the exit function for Ctrl+C
+    vector<int> printvec = kleurscan();
+    for(int i=0; i<printvec.size(); i++){
+    cout << printvec[i]<< endl;
+    }
+}
