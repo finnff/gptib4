@@ -46,7 +46,7 @@ int kleurscan(){
                 green = 0;
             }
             if (blue < 0) {
-                blue = 0
+                blue = 0;
             }
             
             vector <int> rgb = {red, green, blue};
@@ -57,17 +57,7 @@ int kleurscan(){
     }
 }
 
-void exit_signal_handler(int signo){
-    if(signo == SIGINT){
-        BP.reset_all();
-        exit(-2);
-    }
-}
 
-int main(){
-    signal(SIGINT, exit_signal_handler); // register the exit function for Ctrl+C
-    cout << kleurscan()<<endl;
-}
 int bestandcheck(const vector<int> rgb){
     vector <vector <int>> blikken {};
     vector <int> tmpblikken {};BP.set_sensor_type(PORT_1, SENSOR_TYPE_NXT_COLOR_OFF);
@@ -93,3 +83,17 @@ int vectorcheck(vector<vector<int>> blik){
         }
     }
 }
+
+
+void exit_signal_handler(int signo){
+    if(signo == SIGINT){
+        BP.reset_all();
+        exit(-2);
+    }
+}
+
+int main(){
+    signal(SIGINT, exit_signal_handler); // register the exit function for Ctrl+C
+    cout << kleurscan()<<endl;
+}
+
