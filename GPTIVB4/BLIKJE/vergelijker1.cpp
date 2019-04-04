@@ -25,12 +25,17 @@ int vectorcheck(vector<vector<int>> blik){
     for(unsigned int i = 0; i < blik[0].size(); i++){ // amount of  R matches
         for(unsigned int j = 0; j < blik[1].size(); j++){ // amount of G  matches
             for(unsigned int k = 0; k < blik[2].size(); k++){ // amount of B matches
+            if(blik[0].size()>0){
                 if ((blik[0][i] == blik[1][j]) && (blik[0][i] == blik[2][k])) { //is id R == B and ID R ==G
                     return blik[0][i]; 
                 } 
                 else{
                     cout<<"No match found"<<endl;
                 }
+            }
+            else{
+                cout<<"No match found"<<endl;
+            }
             }
         }
     }
