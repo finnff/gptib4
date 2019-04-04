@@ -48,6 +48,7 @@ int bestandcheck(vector<int> rgb){
                 cout << rgb[i]<< " > " <<(bestand[k][i]*0.8);
                 cout << endl;
                 cout << rgb[i] <<" < " << (bestand[k][i]*1.2);
+                cout << endl;
             if (rgb[i] > (bestand[k][i]*0.8) && rgb[i] < (bestand[k][i]*1.2)){
                     tmpblikken.push_back(bestand[k][3]);
             }
