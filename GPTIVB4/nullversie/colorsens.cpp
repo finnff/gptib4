@@ -35,11 +35,21 @@ vector <int> kleurscan(){
                 usleep(70000);
                 time++;
             }
-            red = red / aantal;
-            green = green / aantal;
-            blue = blue / aantal;
             ambient = ambient / aantal;
-            vector <int> rgb = {red, green, blue, ambient};
+            red = (red / aantal) - ambient;
+            green = (green / aantal) - ambient;
+            blue = (blue / aantal) - ambient;
+            if (red < 0) {
+                red = 0;
+            }
+            if (green < 0) {
+                green = 0;
+            }
+            if (blue < 0) {
+                blue = 0
+            }
+            
+            vector <int> rgb = {red, green, blue};
             BP.reset_all();    // Reset everything so there are no run-away motors
             return rgb;
         }
@@ -53,35 +63,23 @@ void exit_signal_handler(int signo){
     }
 }
 
-int main()
-{
+int main(){
     signal(SIGINT, exit_signal_handler); // register the exit function for Ctrl+C
     vector<int> printvec = kleurscan();
     for(int i=0; i<printvec.size(); i++){
-    cout << printvec[i]<< endl;
+    cout << printvec[i]<< " " << flush;
     }
-    cout << kcheck(kleurscan())
+    // cout << kcheck(kleurscan())
 }
 
-int kcheck(rgb)
-{
-    for(unsigned int i = 0; i < bestand.size(); i++)
-    {
-        if (rgb[0] > (bestand[i][0]*0.9) && rgb[0] < (bestand[i][0]*1.1) ) {
-            if (rgb[1] > (bestand[i][1]*0.9) && rgb[1] < (bestand[i][1]*1.1) ) {
-                if (rgb[2] > (bestand[i][2]*0.9) && rgb[2] < (bestand[i][2]*1.1) ) {
-                    return bestand[i][3];
-                }
-            } 
-        } 
-    }
-}
-
-int main()
-{
-    signal(SIGINT, exit_signal_handler); // register the exit function for Ctrl+C
-    vector<int> printvec = kleurscan();
-    for(int i=0; i<printvec.size(); i++){
-    cout << printvec[i]<< endl;
-    }
-}
+// int kcheck(rgb){
+//     for(unsigned int i = 1; i < bestand.size(); i++){
+//         if (rgb[0] > (bestand[i][0]*0.9) && rgb[0] < (bestand[i][0]*1.1) ) {
+//             if (rgb[1] > (bestand[i][1]*0.9) && rgb[1] < (bestand[i][1]*1.1) ) {
+//                 if (rgb[2] > (bestand[i][2]*0.9) && rgb[2] < (bestand[i][2]*1.1) ) {
+//                     return bestand[i][3];
+//                 }
+//             } 
+//         } 
+//     }
+// }
