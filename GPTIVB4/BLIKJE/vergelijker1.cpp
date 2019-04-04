@@ -45,7 +45,7 @@ int bestandcheck(vector<int> rgb){
     vector <int> tmpblikken {};
     BP.set_sensor_type(PORT_1, SENSOR_TYPE_NXT_COLOR_OFF);
     for(unsigned int i = 0; i < 3; i++){
-        for(unsigned int k = 1; k < bestand.size(); k++){
+        for(unsigned int k = 1; k <= bestand.size(); k++){
             if (rgb[i] > (bestand[k][i]*0.8) && rgb[i] < (bestand[k][i]*1.2)){
                     tmpblikken.push_back(bestand[k][3]);
             }
