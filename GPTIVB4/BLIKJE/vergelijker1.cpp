@@ -23,7 +23,7 @@ int vectorcheck(vector<vector<int>> blik){
     for(unsigned int i = 0; i < blik[0].size(); i++){ //R
         for(unsigned int j = 0; j < blik[1].size(); j++){ // G
             for(unsigned int k = 0; k < blik[2].size(); k++){ // B
-                if (blik[0][i] = blik[1][j] && blik[0] = blik[2][k]) {
+                if ((blik[0][i] == blik[1][j]) && (blik[0][i] == blik[2][k])) {
                     return blik[0][i];
                 } 
             }
