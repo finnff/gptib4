@@ -43,8 +43,8 @@ int vectorcheck(vector<vector<int>> blik){
 int bestandcheck(vector<int> rgb){
     vector <int> tmpblikken {};
     BP.set_sensor_type(PORT_1, SENSOR_TYPE_NXT_COLOR_OFF);
-    for(unsigned int i = 0; i < 3; i++){
         for(unsigned int k = 0; k < bestand.size(); k++){
+    for(unsigned int i = 0; i < 3; i++){
                 cout << rgb[i]<< " > " <<(bestand[k][i]*0.8);
                 cout << endl;
                 cout << rgb[i] <<" < " << (bestand[k][i]*1.2);
