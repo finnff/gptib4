@@ -10,6 +10,30 @@ BrickPi3 BP;
 
 void exit_signal_handler(int signo);
 
+int vectorcheck(vector<vector<int>> blik){
+    for(unsigned int i = 0; i < blik[0].size(); i++){ //R
+        for(unsigned int j = 0; j < blik[1].size(); j++){ // G
+            for(unsigned int k = 0; k < blik[2].size(); k++){ // B
+                if (blik[0][i] = blik[1][j] && blik[0] = blik[2][k]) {
+                    return blik[0][i];
+                } 
+            }
+        }
+    }
+}
+int bestandcheck(const vector<int> rgb){
+    vector <vector <int>> blikken {};
+    vector <int> tmpblikken {};BP.set_sensor_type(PORT_1, SENSOR_TYPE_NXT_COLOR_OFF);
+    for(unsigned int i = 0; i < rgb.size(); i++){
+        for(unsigned int k = 1; k < bestand.size(); k++){
+            if (rgb[i] > (bestand[k][i]*0.8) && rgb[i] < (bestand[k][i]*1.2)){
+                    tmpblikken.push_back(bestand[k][3]);
+            }
+        blikken.push_back(tmpblikken);
+        }
+    }
+    return vectorcheck(blikken);
+}
 int kleurscan(){
     BP.detect();
     BP.set_sensor_type(PORT_1, SENSOR_TYPE_NXT_COLOR_FULL);
@@ -58,31 +82,7 @@ int kleurscan(){
 }
 
 
-int bestandcheck(const vector<int> rgb){
-    vector <vector <int>> blikken {};
-    vector <int> tmpblikken {};BP.set_sensor_type(PORT_1, SENSOR_TYPE_NXT_COLOR_OFF);
-    for(unsigned int i = 0; i < rgb.size(); i++){
-        for(unsigned int k = 1; k < bestand.size(); k++){
-            if (rgb[i] > (bestand[k][i]*0.8) && rgb[i] < (bestand[k][i]*1.2)){
-                    tmpblikken.push_back(bestand[k][3]);
-            }
-        blikken.push_back(tmpblikken);
-        }
-    }
-    return vectorcheck(blikken);
-}
 
-int vectorcheck(vector<vector<int>> blik){
-    for(unsigned int i = 0; i < blik[0].size(); i++){ //R
-        for(unsigned int j = 0; j < blik[1].size(); j++){ // G
-            for(unsigned int k = 0; k < blik[2].size(); k++){ // B
-                if (blik[0][i] = blik[1][j] && blik[0] = blik[2][k]) {
-                    return blik[0][i];
-                } 
-            }
-        }
-    }
-}
 
 
 void exit_signal_handler(int signo){
