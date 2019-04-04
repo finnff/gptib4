@@ -9,6 +9,8 @@ using namespace std;
 BrickPi3 BP;
 
 
+vector <vector <int>> blikken {};
+
 
 vector<vector<int>> bestand = {
     {120,240},
@@ -16,15 +18,15 @@ vector<vector<int>> bestand = {
     {134,157,60,117237} // Sprite?
 };
 
-
+ /// RRRRRRR,BBBBB,GGGGG
 void exit_signal_handler(int signo);
 
 int vectorcheck(vector<vector<int>> blik){
-    for(unsigned int i = 0; i < blik[0].size(); i++){ //R
-        for(unsigned int j = 0; j < blik[1].size(); j++){ // G
-            for(unsigned int k = 0; k < blik[2].size(); k++){ // B
-                if ((blik[0][i] == blik[1][j]) && (blik[0][i] == blik[2][k])) {
-                    return bestand[i][3];
+    for(unsigned int i = 0; i < blik[0].size(); i++){ // amount of  R matches
+        for(unsigned int j = 0; j < blik[1].size(); j++){ // amount of G  matches
+            for(unsigned int k = 0; k < blik[2].size(); k++){ // amount of B matches
+                if ((blik[0][i] == blik[1][j]) && (blik[0][i] == blik[2][k])) { //is id R == B and ID R ==G
+                    return blik[0][i]; 
                 } 
                 else{
                     cout<<"No match found"<<endl;
@@ -33,8 +35,7 @@ int vectorcheck(vector<vector<int>> blik){
         }
     }
 }
-int bestandcheck(const vector<int> rgb){
-    vector <vector <int>> blikken {};
+int bestandcheck(const vector <vector <int>> blikken {}; vector<int> rgb){
     vector <int> tmpblikken {};
     BP.set_sensor_type(PORT_1, SENSOR_TYPE_NXT_COLOR_OFF);
     for(unsigned int i = 0; i < 3; i++){
