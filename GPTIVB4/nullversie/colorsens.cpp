@@ -69,17 +69,31 @@ int main(){
     for(int i=0; i<printvec.size(); i++){
     cout << printvec[i]<< " " << flush;
     }
-    // cout << kcheck(kleurscan())
+    cout << vectorcheck(bestandcheck(kleurscan()))
 }
 
-// int kcheck(rgb){
-//     for(unsigned int i = 1; i < bestand.size(); i++){
-//         if (rgb[0] > (bestand[i][0]*0.9) && rgb[0] < (bestand[i][0]*1.1) ) {
-//             if (rgb[1] > (bestand[i][1]*0.9) && rgb[1] < (bestand[i][1]*1.1) ) {
-//                 if (rgb[2] > (bestand[i][2]*0.9) && rgb[2] < (bestand[i][2]*1.1) ) {
-//                     return bestand[i][3];
-//                 }
-//             } 
-//         } 
-//     }
-// }
+vector <vector <int>> bestandcheck(rgb){
+    vector <vector <int>> blikken {};
+    vector <int> tmpblikken {};
+    for(unsigned int i = 0; i < rgb.size(); i++){
+        for(unsigned int k = 1; k < bestand.size(); k++){
+            if (rgb[i] > (bestand[k][i]*0.8) && rgb[i] < (bestand[k][i]*1.2) ) {
+                    tmpblikken.push_back(bestand[k][3])
+            }
+        blikken.push_back(tmpblikken)
+        }
+    }
+    return blikken;
+}
+
+int vectorcheck(blik){
+    for(unsigned int i = 0; i < blik[0].size(); i++){
+        for(unsigned int j = 0; j < blik[1]; j++){
+            for(unsigned int k = 0; k < blik[2]; k++){
+                if (blik[0][i] = blik[1][j] && blik[0] = blik[2][k]) {
+                    return blik[0][i];
+                } 
+            }
+        }
+    }
+}
