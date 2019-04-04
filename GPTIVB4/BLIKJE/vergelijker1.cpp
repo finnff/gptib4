@@ -18,7 +18,7 @@ vector <int> kleurscan(){
     sensor_color_t      Color1;
     while(true){
         if(BP.get_sensor(PORT_1, Color1) == 0){
-            BP.set_motor_power(PORT_B, -60); //rotation = ~2.5 sec
+            BP.set_motor_power(PORT_B, -20); //rotation = ~2.5 sec
             BP.set_motor_dps(PORT_C, 180);
             int red = 0;
             int green = 0;
@@ -69,7 +69,7 @@ int main(){
     for(int i=0; i<printvec.size(); i++){
     cout << printvec[i]<< " " << flush;
     }
-    cout << vectorcheck(bestandcheck(kleurscan()))
+    cout << vectorcheck(bestandcheck(kleurscan()))<<endl;
 }
 
 vector <vector <int>> bestandcheck(rgb){
@@ -77,10 +77,10 @@ vector <vector <int>> bestandcheck(rgb){
     vector <int> tmpblikken {};
     for(unsigned int i = 0; i < rgb.size(); i++){
         for(unsigned int k = 1; k < bestand.size(); k++){
-            if (rgb[i] > (bestand[k][i]*0.8) && rgb[i] < (bestand[k][i]*1.2) ) {
-                    tmpblikken.push_back(bestand[k][3])
+            if (rgb[i] > (bestand[k][i]*0.8) && rgb[i] < (bestand[k][i]*1.2)){
+                    tmpblikken.push_back(bestand[k][3]);
             }
-        blikken.push_back(tmpblikken)
+        blikken.push_back(tmpblikken);
         }
     }
     return blikken;
