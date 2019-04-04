@@ -26,6 +26,9 @@ int vectorcheck(vector<vector<int>> blik){
                 if ((blik[0][i] == blik[1][j]) && (blik[0][i] == blik[2][k])) {
                     return blik[0][i];
                 } 
+                else{
+                    cout<<"No match found"<<endl;
+                }
             }
         }
     }
