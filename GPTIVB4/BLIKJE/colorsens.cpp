@@ -44,6 +44,7 @@ vector <int> kleurscan(){
             ambient = ambient / aantal;
             vector <int> rgb = {red, green, blue, ambient};
             BP.reset_all();    // Reset everything so there are no run-away motors
+            BP.set_sensor_type(PORT_1, SENSOR_TYPE_NXT_COLOR_OFF);
             return rgb;
         }
     }
