@@ -8,6 +8,15 @@
 using namespace std;
 BrickPi3 BP;
 
+
+
+vector<vector<int>> bestand = {
+    {120,240}
+    {180,90,70,0}
+    {160,185,90,1}
+};
+
+
 void exit_signal_handler(int signo);
 
 int vectorcheck(vector<vector<int>> blik){
