@@ -10,7 +10,7 @@ BrickPi3 BP;
 
 void exit_signal_handler(int signo);
 
-vector <int> kleurscan(){
+int kleurscan(){
     BP.detect();
     BP.set_sensor_type(PORT_1, SENSOR_TYPE_NXT_COLOR_FULL);
     BP.offset_motor_encoder(PORT_B, BP.get_motor_encoder(PORT_B));
@@ -51,7 +51,8 @@ vector <int> kleurscan(){
             
             vector <int> rgb = {red, green, blue};
             BP.reset_all();    // Reset everything so there are no run-away motors
-            return rgb;
+            BP.set_sensor_type(PORT_1, SENSOR_TYPE_NXT_COLOR_OFF); // turns off rbg
+            return bestandcheck(rgb);
         }
     }
 }
@@ -65,16 +66,11 @@ void exit_signal_handler(int signo){
 
 int main(){
     signal(SIGINT, exit_signal_handler); // register the exit function for Ctrl+C
-    vector<int> printvec = kleurscan();
-    for(int i=0; i<printvec.size(); i++){
-    cout << printvec[i]<< " " << flush;
-    }
-    cout << vectorcheck(bestandcheck(kleurscan()))<<endl;
+    cout << kleurscan()<<endl;
 }
-
-vector <vector <int>> bestandcheck(rgb){
+int bestandcheck(const vector<int> rgb){
     vector <vector <int>> blikken {};
-    vector <int> tmpblikken {};
+    vector <int> tmpblikken {};BP.set_sensor_type(PORT_1, SENSOR_TYPE_NXT_COLOR_OFF);
     for(unsigned int i = 0; i < rgb.size(); i++){
         for(unsigned int k = 1; k < bestand.size(); k++){
             if (rgb[i] > (bestand[k][i]*0.8) && rgb[i] < (bestand[k][i]*1.2)){
@@ -83,13 +79,13 @@ vector <vector <int>> bestandcheck(rgb){
         blikken.push_back(tmpblikken);
         }
     }
-    return blikken;
+    return vectorcheck(blikken);
 }
 
-int vectorcheck(blik){
-    for(unsigned int i = 0; i < blik[0].size(); i++){
-        for(unsigned int j = 0; j < blik[1]; j++){
-            for(unsigned int k = 0; k < blik[2]; k++){
+int vectorcheck(vector<vector<int>> blik){
+    for(unsigned int i = 0; i < blik[0].size(); i++){ //R
+        for(unsigned int j = 0; j < blik[1].size(); j++){ // G
+            for(unsigned int k = 0; k < blik[2].size(); k++){ // B
                 if (blik[0][i] = blik[1][j] && blik[0] = blik[2][k]) {
                     return blik[0][i];
                 } 
