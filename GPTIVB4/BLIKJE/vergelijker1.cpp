@@ -13,7 +13,6 @@ vector <vector <int>> blikken {};
 
 
 vector<vector<int>> bestand = {
-    {120,240},
     {180,90,70,879872}, // COLA
     {134,157,60,117237} // Sprite?
 };
@@ -45,7 +44,10 @@ int bestandcheck(vector<int> rgb){
     vector <int> tmpblikken {};
     BP.set_sensor_type(PORT_1, SENSOR_TYPE_NXT_COLOR_OFF);
     for(unsigned int i = 0; i < 3; i++){
-        for(unsigned int k = 1; k <= bestand.size(); k++){
+        for(unsigned int k = 0; k < bestand.size(); k++){
+                cout << rgb[i]<< " > " <<(bestand[k][i]*0.8);
+                cout << endl;
+                cout << rgb[i] <<" < " << (bestand[k][i]*1.2);
             if (rgb[i] > (bestand[k][i]*0.8) && rgb[i] < (bestand[k][i]*1.2)){
                     tmpblikken.push_back(bestand[k][3]);
             }
