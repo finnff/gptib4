@@ -13,6 +13,7 @@ vector <vector <int>> blikken {};
 
 
 vector<vector<int>> bestand = {
+    {//r,//g//b//ID}
     {180,90,70,879872}, // COLA
     {114,157,60,117237} // Sprite?
 };
@@ -27,6 +28,12 @@ int vectorcheck(vector<vector<int>> blik){
             if(blik[0].size()>0){
                 cout << "MATCHER"<<endl;
                 if ((blik[0][i] == blik[1][j]) && (blik[0][i] == blik[2][k])) { //is id R == B and ID R ==G
+                    return blik[0][i]; 
+                } 
+                if ((blik[1][i] == blik[0][j]) && (blik[0][i] == blik[2][k])) { //is id R == B and ID R ==G
+                    return blik[0][i]; 
+                } 
+                if ((blik[2][i] == blik[0][j]) && (blik[0][i] == blik[1][k])) { //is id R == B and ID R ==G
                     return blik[0][i]; 
                 } 
                 else{
