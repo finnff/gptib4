@@ -21,7 +21,7 @@ vector <int> kleurscan(){
     sensor_color_t      Color1;
     while(true){
         if(BP.get_sensor(PORT_1, Color1) == 0){
-            BP.set_motor_power(PORT_B, -60); //rotation = ~2.5 sec
+            BP.set_motor_power(PORT_B, -20); //rotation = ~2.5 sec
             BP.set_motor_dps(PORT_C, 180);
             int red = 0;
             int green = 0;
