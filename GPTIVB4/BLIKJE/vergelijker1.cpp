@@ -35,7 +35,7 @@ int vectorcheck(vector<vector<int>> blik){
         }
     }
 }
-int bestandcheck(const vector <vector <int>> blikken {}; vector<int> rgb){
+int bestandcheck(vector<int> rgb){
     vector <int> tmpblikken {};
     BP.set_sensor_type(PORT_1, SENSOR_TYPE_NXT_COLOR_OFF);
     for(unsigned int i = 0; i < 3; i++){
