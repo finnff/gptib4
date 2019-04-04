@@ -8,7 +8,7 @@
 using namespace std;
 BrickPi3 BP;
 
-vector<vector<int>> results = {};
+
 
 vector<vector<int>> bestand = {
     {120,240},
@@ -24,11 +24,7 @@ int vectorcheck(vector<vector<int>> blik){
         for(unsigned int j = 0; j < blik[1].size(); j++){ // G
             for(unsigned int k = 0; k < blik[2].size(); k++){ // B
                 if ((blik[0][i] == blik[1][j]) && (blik[0][i] == blik[2][k])) {
-                    for (size_t m =0; m<results.size(); m++){
-                        for (size_t n =0;n<results[m].size(); n++)
-                            cout << results[m][n]<< endl;
-                            return 737;
-                    }
+                    return bestand[i][3];
                 } 
                 else{
                     cout<<"No match found"<<endl;
@@ -46,7 +42,7 @@ int bestandcheck(const vector<int> rgb){
             if (rgb[i] > (bestand[k][i]*0.8) && rgb[i] < (bestand[k][i]*1.2)){
                     tmpblikken.push_back(bestand[k][3]);
             }
-        results.push_back(tmpblikken);
+        blikken.push_back(tmpblikken);
         }
     }
     return vectorcheck(blikken);
