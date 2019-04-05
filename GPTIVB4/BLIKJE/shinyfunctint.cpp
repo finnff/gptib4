@@ -26,6 +26,7 @@ vector<vector<int>> bestand = {
 
  /// RRRRRRR,BBBBB,GGGGG
 void exit_signal_handler(int signo);
+void kleurscan();
 
 void blikje(vector<vector<int>> blikken){
     int teempo1 = 1000000;
