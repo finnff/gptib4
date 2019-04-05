@@ -15,9 +15,9 @@ vector <vector <int>> blikken {};
 vector <string> namen {"Cola", "Sprite", "Witte Monster"};
 
 vector<vector<int>> bestand = {
-{145,46,43,999999}, //(Cola)
-{113,137,58,777777}, //(sprite)
-{88,94,77,666} //(witte monster)
+{69,13,11,0}, //(Cola)
+{62,73,37,1}, //(sprite)
+{88,94,77,2} //(witte monster)
 };
 
  /// RRRRRRR,BBBBB,GGGGG
@@ -32,7 +32,7 @@ void blikje(vector<vector<int>> blikken){
             teempo2 = blikken[i][1];
         }
     }
-    cout << teempo2 << " with error points "<< teempo1 << endl;
+    cout << namen[teempo2] << " with error points "<< teempo1 << endl;
 }
 void rgbaf(vector<int> rgb){
     for(unsigned int j = 0; j < bestand.size(); j++){
