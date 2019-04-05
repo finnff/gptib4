@@ -4,7 +4,7 @@
 #include <vector>
 using namespace std;
 
-void read_database() {
+void read_database(){
     ofstream ifile;
     ifile.open("blikken.txt");
     int i = 0;
