@@ -10,7 +10,7 @@
 using namespace std;
 BrickPi3 BP;
 
-
+int run = 0;
 vector <vector <int>> blikken {};
 vector <string> namen {"Cola", "Sprite", "Witte Monster","Sinas", "Hertog Jan","Monster Zwart","Bavaria"};
 
@@ -36,6 +36,13 @@ void blikje(vector<vector<int>> blikken){
             teempo2 = blikken[i][1];
         }
     }
+    cout << namen[teempo2] << " with error points "<< teempo1 << endl;
+    if (teempo1 > 50 && run < 1) {
+        run++;
+        cout << "error to high trying again" << endl;
+        kleurscan();
+    }
+    
     cout << namen[teempo2] << " with error points "<< teempo1 << endl;
 }
 void rgbaf(vector<int> rgb){
