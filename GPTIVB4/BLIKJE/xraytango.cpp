@@ -1,6 +1,7 @@
 #include "BrickPi3.h"
 #include <iostream>
 #include <unistd.h>
+#include <fstream>
 #include <signal.h>
 #include <iomanip>
 #include <vector>
@@ -8,15 +9,31 @@
 using namespace std;
 BrickPi3 BP;
 
-
-vector <vector <int>> blikken {};
-
-
 vector<vector<int>> bestand = {
      //r,//g//b//ID}
     {180,90,70,879872}, // COLA
     {114,157,60,117237} // Sprite?
 };
+
+vector <vector <int>> blikken {};
+
+void read_database(){
+    ofstream ifile;
+    ifile.open("DATABASEV1.txt");
+    int i = 0;
+    if (ifile.is_open()) {
+        while (!ifile.eof){
+            getline(ifile, line[i]);
+            cout << line;   
+            i++;
+        }
+    } 
+    else {
+        cout << "Kan bestand niet openen. \n";
+    }
+}
+
+
 
  /// RRRRRRR,BBBBB,GGGGG
 void exit_signal_handler(int signo);
