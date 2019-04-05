@@ -12,12 +12,16 @@ BrickPi3 BP;
 
 
 vector <vector <int>> blikken {};
-vector <string> namen {"Cola", "Sprite", "Witte Monster"};
+vector <string> namen {"Cola", "Sprite", "Witte Monster","Sinas", "Hertog Jan","Monster Zwart","Bavaria"};
 
 vector<vector<int>> bestand = {
 {69,13,11,0}, //(Cola)
 {62,73,37,1}, //(sprite)
-{88,94,77,2} //(witte monster)
+{55,56,46,2}, //(witte monster)
+{71,36,19,3}, //(Sinas)
+{70,40,22,4}, //(Hertog)
+{34,37,26,5}, // Zwarte monster 
+{34,46,46,6}  // Bavaria 
 };
 
  /// RRRRRRR,BBBBB,GGGGG
