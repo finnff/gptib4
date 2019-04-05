@@ -12,7 +12,7 @@ BrickPi3 BP;
 
 
 vector <vector <int>> blikken {};
-vector <string> namen {Cola, Sprite, Witte Monster};
+vector <string> namen {"Cola", "Sprite", "Witte Monster"};
 
 vector<vector<int>> bestand = {
 {145,46,43,0}, //(Cola)
@@ -23,7 +23,18 @@ vector<vector<int>> bestand = {
  /// RRRRRRR,BBBBB,GGGGG
 void exit_signal_handler(int signo);
 
-void rgbaf(rgb){
+void blikje(vector<vector<int>> blikken){
+    int teempo1 = 1000000;
+    int teempo2 = 0;
+    for(unsigned int i = 0; i < blikken.size(); i++){
+        if (blikken[i][0] < teempo1) {
+            teempo1 = blikken[i][0];
+            teempo2 = blikken[i][1];
+        }
+    }
+    cout << teempo1 << "with error points "<< teempo2 << endl;
+}
+void rgbaf(vector<int> rgb){
     for(unsigned int j = 0; j < bestand.size(); j++){
         int tmp1 = (abs (rgb[0] - bestand[j][0])) + (abs (rgb[1] - bestand[j][1])) + (abs (rgb[2] - bestand[j][2]));
         blikken.push_back(tmp1);
@@ -32,21 +43,8 @@ void rgbaf(rgb){
     return blikje(blikken);
 }
 
-void blikje(blikken){
-    int tmp1 = 1000000;
-    int tmp2 = 0;
-    for(unsigned int i = 0; i < blikken.size(); i++){
-        if (blikken[i][0] < tmp1) {
-            tmp1 = blikken[i][0];
-            tmp2 = blikken[i][1];
-        }
-    }
-    cout << tmp1 << endl;
-    cout << tmp2 << endl;
-    return tmp2;
-}
 
-int kleurscan(){
+void kleurscan(){
     BP.detect();
     BP.set_sensor_type(PORT_1, SENSOR_TYPE_NXT_COLOR_FULL);
     BP.offset_motor_encoder(PORT_B, BP.get_motor_encoder(PORT_B));
