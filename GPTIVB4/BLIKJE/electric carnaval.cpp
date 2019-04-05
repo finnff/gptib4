@@ -36,9 +36,8 @@ void blikje(vector<vector<int>> blikken){
 }
 void rgbaf(vector<int> rgb){
     for(unsigned int j = 0; j < bestand.size(); j++){
-        int tmp1 = (abs (rgb[0] - bestand[j][0])) + (abs (rgb[1] - bestand[j][1])) + (abs (rgb[2] - bestand[j][2]));
+        vector<int> tmp1 = {(abs (rgb[0] - bestand[j][0])) + (abs (rgb[1] - bestand[j][1])) + (abs (rgb[2] - bestand[j][2])),bestand[j][3]};
         blikken.push_back(tmp1);
-        blikken.push_back (bestand[j][3]);
     }
     return blikje(blikken);
 }
@@ -104,6 +103,6 @@ void exit_signal_handler(int signo){
 
 int main(){
     signal(SIGINT, exit_signal_handler); // register the exit function for Ctrl+C
-    cout << kleurscan()<<endl;
+    kleurscan();
 }
 
