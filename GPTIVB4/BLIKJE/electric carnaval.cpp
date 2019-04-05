@@ -10,9 +10,8 @@
 using namespace std;
 BrickPi3 BP;
 
-
 vector <vector <int>> blikken {};
-vector <string> namen {Cola, Sprite, Witte Monster};
+vector <string> namen {"Cola", "Sprite", "Witte Monster"};
 
 vector<vector<int>> bestand = {
 {145,46,43,0}, //(Cola)
@@ -92,10 +91,6 @@ int kleurscan(){
         }
     }
 }
-
-
-
-
 
 void exit_signal_handler(int signo){
     if(signo == SIGINT){
