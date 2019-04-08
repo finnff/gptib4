@@ -120,10 +120,12 @@ void kleurscanA(){
             BP.reset_all();    // Reset everything so there are no run-away motors
             BP.set_sensor_type(PORT_1, SENSOR_TYPE_NXT_COLOR_OFF); // turns off rbg
             BP.set_sensor_type(PORT_2, SENSOR_TYPE_NXT_COLOR_OFF);
-            return rgbaf(rgbA);
-            return rgbaf(rgbB);
+            for(int i=0; i<2;i++){
+                return rgbaf(rgbA);
+                return rgbaf(rgbB);
         }
     }
+}
 }
 
 
