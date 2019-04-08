@@ -133,7 +133,7 @@ int main(){
         }
 
     }
-    else if (input = 'b') {
+    if (input = 'b') {
         vector <int> scan = kleurscan();
         vector <int> gemscan = {};
         for(unsigned int i = 0; i < 6; i++){
