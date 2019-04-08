@@ -128,8 +128,8 @@ void kleurscanA(){
             BP.set_sensor_type(PORT_1, SENSOR_TYPE_NXT_COLOR_OFF); // turns off rbg
             BP.set_sensor_type(PORT_2, SENSOR_TYPE_NXT_COLOR_OFF);
             for(int i=0; i<2;i++){
-                 rgbaf(rgbA, false);
-                 return rgbaf(rgbB, true);
+                rgbaf(rgbA, false);
+                return rgbaf(rgbB, true);
         }
     }
 }
