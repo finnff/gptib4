@@ -146,7 +146,7 @@ void kleurscanA(){
             BP.set_sensor_type(PORT_2, SENSOR_TYPE_NXT_COLOR_OFF);
             for(int i=0; i<2;i++){
                 rgbaf(rgbA, false);
-                return rgbaf(rgbB, true);
+                // return rgbaf(rgbB, true);
         }
     }
 }
