@@ -53,7 +53,7 @@ void kleurscanA(){
             ambientA = ambientA / aantal;
             redA = (redA / aantal) - ambientA;
             greenA = (greenA / aantal) - ambientA;
-            blueA = (blueB / aantal) - ambientA;
+            blueA = (blueA / aantal) - ambientA;
             if (redA < 0) {
                 redA = 0;
             }
@@ -107,7 +107,7 @@ int main(){
 
     cout<< "Rgb A waardes: "<< endl;
     for(size_t j=0;j<superA.size();j++){
-        for(size_t k =0;k<superA[j].size();k++){
+        for(size_t k =0; k<superA[j].size();k++){
             cout << superA[j][k]<<","<<flush;
         }
         cout<<endl;

@@ -108,7 +108,7 @@ void kleurscanA(){
             ambientA = ambientA / aantal;
             redA = (redA / aantal) - ambientA;
             greenA = (greenA / aantal) - ambientA;
-            blueA = (blueB / aantal) - ambientA;
+            blueA = (blueA / aantal) - ambientA;
             if (redA < 0) {
                 redA = 0;
             }
