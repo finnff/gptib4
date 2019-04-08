@@ -22,7 +22,7 @@ vector<vector<long int>> bestand = {
 {1171,1136,1119,3}, //(Sinas)
 {157,110,62,4}, //(Hertog)
 {85,86,81,5}, // Zwarte monster 
-{90,120,130,6}  // Bavaria 
+{25,38,44,6}  // Bavaria 
 };
 
  /// RRRRRRR,BBBBB,GGGGG
