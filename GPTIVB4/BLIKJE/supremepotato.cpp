@@ -117,13 +117,13 @@ void exit_signal_handler(int signo){
 int main(){
     signal(SIGINT, exit_signal_handler); // register the exit function for Ctrl+C
     zwart = kleurscan();
-    for(unsigned int i = 0; i < 3; i++)
+    for(unsigned int i = 0; i < 6; i++)
     {
         cout << "zwart: " << zwart[i] << endl;
     }
     sleep(5);
     wit = kleurscan();
-    for(unsigned int i = 0; i < 3; i++)
+    for(unsigned int i = 0; i < 6; i++)
     {
         cout << "wit: " << wit[i] << endl;
     }
