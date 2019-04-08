@@ -94,7 +94,7 @@ int main(){
     vector <int> zwart = kleurscan();
     sleep(5);
     vector <int> wit = kleurscan();
-    sleep(10);
+    sleep(5);
     vector <int> scan = kleurscan();
     vector <int> gemscan = {};
     for(unsigned int i = 0; i < 3; i++){
