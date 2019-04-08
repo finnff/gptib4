@@ -116,12 +116,23 @@ void exit_signal_handler(int signo){
 
 int main(){
     signal(SIGINT, exit_signal_handler); // register the exit function for Ctrl+C
-        vector <int> scan = kleurscan();
-        vector <int> gemscan = {};
-        for(unsigned int i = 0; i < 6; i++){
-            gemscan.push_back(((scan[i]-zwart[i])*100)/(wit[i]-zwart[i]));
-            cout << ((scan[i]-zwart[i])*100)/(wit[i]-zwart[i]) << endl;
-        }
+    zwart = kleurscan();
+    for(unsigned int i = 0; i < 3; i++)
+    {
+        cout << "zwart: " << zwart[i] << endl;
+    }
+    sleep(5);
+    wit = kleurscan();
+    for(unsigned int i = 0; i < 3; i++)
+    {
+        cout << "wit: " << wit[i] << endl;
+    }
+    // vector <int> scan = kleurscan();
+    // vector <int> gemscan = {};
+    // for(unsigned int i = 0; i < 6; i++){
+    //     gemscan.push_back(((scan[i]-zwart[i])*100)/(wit[i]-zwart[i]));
+    //     cout << ((scan[i]-zwart[i])*100)/(wit[i]-zwart[i]) << endl;
+    // }
     // rgbaf(gemscan);
     
 }
