@@ -45,6 +45,7 @@ void blikje(vector<vector< long int>> yeet){
 
 }
 void rgbaf(vector<int> rgb){
+    vector <int> tmp1 {};
     vector <vector <long int>> blikken {};
     for(unsigned int j = 0; j < bestand.size(); j++){
         vector<long int> tmp1 = {(((abs (rgb[0] - bestand[j][0]))*(abs (rgb[0] - bestand[j][0]))) 
