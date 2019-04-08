@@ -121,11 +121,15 @@ int main(){
     wit = kleurscan();
     for(unsigned int i = 0; i < 3; i++){
         cout << "A-zwart: " << zwart[i] << endl;
-        cout << "B-zwart: " << wit[i] << endl;
     }
-    for(unsigned int j = 3; j < 6; j++){
-        cout << "A-wit: " << wit[j] << endl;
-        cout << "B-wit: " << zwart[j] << endl;
+    for(unsigned int k = 0; k < 3; k++){
+        cout << "B-zwart: " << wit[k+3] << endl;
+    }
+    for(unsigned int m = 0; m < 3; m++){
+        cout << "A-wit: " << wit[m] << endl;
+    }
+    for(unsigned int j = 0; j < 3; j++){
+        cout << "B-wit: " << zwart[j+3] << endl;
     }
     // vector <int> scan = kleurscan();
     // vector <int> gemscan = {};
