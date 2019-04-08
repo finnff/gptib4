@@ -55,10 +55,10 @@ void rgbaf(vector<int> rgb, bool check){
         }
     }
     else{
-        for(unsigned int j = 0; j < bestand.size(); j++){
-            vector<long int> tmp1 = {(((abs (rgb[0] - bestand[j][0]))*(abs (rgb[0] - bestand[j][0]))) 
-                                    + ((abs (rgb[1] - bestand[j][1]))*(abs (rgb[1] - bestand[j][1]))) 
-                                    + ((abs (rgb[2] - bestand[j][2]))*(abs (rgb[2] - bestand[j][2])))),bestand[j][6]};
+        for(unsigned int k = 0; k < bestand.size(); k++){
+            vector<long int> tmp1 = {(((abs (rgb[0] - bestand[k][0]))*(abs (rgb[0] - bestand[k][0]))) 
+                                    + ((abs (rgb[1] - bestand[k][1]))*(abs (rgb[1] - bestand[k][1]))) 
+                                    + ((abs (rgb[2] - bestand[k][2]))*(abs (rgb[2] - bestand[k][2])))),bestand[k][6]};
         }
     }
     if(check == true){
@@ -94,6 +94,7 @@ void kleurscanA(){
             int ambientB = 0;
             int time = 0;
             int aantal =0;
+            cout<< " Yeet" << endl;
             while(time <= 36){
                 aantal++;
                 redA += Color1.reflected_red;
