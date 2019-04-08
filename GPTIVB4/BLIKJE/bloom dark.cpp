@@ -55,7 +55,7 @@ void rgbaf(vector<int> rgb, bool check){
 
     }
     blikje(blikkenA);
-    return blikje(blikkenB);
+    blikje(blikkenB);
 }
 
 
@@ -129,7 +129,7 @@ void kleurscanA(){
             BP.set_sensor_type(PORT_2, SENSOR_TYPE_NXT_COLOR_OFF);
             for(int i=0; i<2;i++){
                 rgbaf(rgbA, false);
-                return rgbaf(rgbB, true);
+                rgbaf(rgbB, true);
         }
     }
 }
