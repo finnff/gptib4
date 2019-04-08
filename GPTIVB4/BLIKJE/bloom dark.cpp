@@ -55,6 +55,7 @@ void rgbaf(vector<int> rgb){
 void kleurscanA(){
     BP.detect();
     BP.set_sensor_type(PORT_1, SENSOR_TYPE_NXT_COLOR_FULL);
+    BP.set_sensor_type(PORT_2, SENSOR_TYPE_NXT_COLOR_FULL);
     BP.offset_motor_encoder(PORT_B, BP.get_motor_encoder(PORT_B));
     BP.offset_motor_encoder(PORT_C, BP.get_motor_encoder(PORT_C));
     sensor_color_t      Color1;
