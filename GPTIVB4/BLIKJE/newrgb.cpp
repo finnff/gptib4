@@ -78,8 +78,8 @@ vector <int> kleurscan(){
             BP.reset_all();    // Reset everything so there are no run-away motors
             BP.set_sensor_type(PORT_1, SENSOR_TYPE_NXT_COLOR_OFF); // turns off rbg
             return rgb;
+        }
     }
-}
 }
 
 void exit_signal_handler(int signo){
@@ -91,11 +91,26 @@ void exit_signal_handler(int signo){
 
 int main(){
     signal(SIGINT, exit_signal_handler); // register the exit function for Ctrl+C
-// scan wit-zwart functie
-    zwart = kleurscan();
-    sleep(5);
-    wit = kleurscan();
-    if (GetKeyState(115) == true) {
+    char input;
+    cout << "zwart-wit scan: z" << endl;
+    cout << "blik scan: b" << endl;
+    cout << "kies een soort scan: " << flush;
+    cin << input;
+    if (input = 'z') {
+        zwart = kleurscan();
+        for(unsigned int i = 0; i < 3; i++)
+        {
+            cout << "zwart: " << zwart[i] << endl;
+        }
+        sleep(5);
+        wit = kleurscan();
+        for(unsigned int i = 0; i < 3; i++)
+        {
+            cout << "wit: " << wit[i] << endl;
+        }
+
+    }
+    else if (input = 'b') {
         vector <int> scan = kleurscan();
         vector <int> gemscan = {};
         for(unsigned int i = 0; i < 3; i++){
