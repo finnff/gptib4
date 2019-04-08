@@ -54,7 +54,6 @@ void rgbaf(vector<int> rgb){
     return blikje(blikken);
 }
 
-
 void kleurscan(){
     BP.detect();
     BP.set_sensor_type(PORT_1, SENSOR_TYPE_NXT_COLOR_FULL);
@@ -102,10 +101,6 @@ void kleurscan(){
     }
 }
 
-
-
-
-
 void exit_signal_handler(int signo){
     if(signo == SIGINT){
         BP.reset_all();
@@ -119,7 +114,7 @@ int main(){
     BP.set_sensor_type(PORT_2, SENSOR_TYPE_NXT_ULTRASONIC);
     sensor_ultrasonic_t Ultrasonic2;
     signal(SIGINT, exit_signal_handler); // register the exit function for Ctrl+C
-    if (PORT_2, Ultrasonic2) == 0) {
+    if (BP.get_sensor(PORT_2, Ultrasonic2) == 0) {
         // afstand checken
         if (Ultrasonic2.cm <= 8) {
             sleep(1);
