@@ -39,7 +39,6 @@ void blikje(vector<vector<int>> blikken){
         }
     }
     cout << namen[teempo2] << " with error points "<< teempo1 << endl;
-    }
 }
 void rgbaf(vector<int> rgb){
     for(unsigned int j = 0; j < bestand.size(); j++){
