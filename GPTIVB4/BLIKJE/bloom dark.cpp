@@ -49,21 +49,19 @@ void rgbaf(vector<int> rgb, bool check){
     vector<long int> tmp1;
     if(check == true){
         for(unsigned int j = 0; j < bestand.size(); j++){
-            cout<< " true "<< j<< endl;
             vector<long int> tmp2 = {(((abs (rgb[0] - bestand[j][3]))*(abs (rgb[0] - bestand[j][3]))) 
                                     + ((abs (rgb[1] - bestand[j][4]))*(abs (rgb[1] - bestand[j][4]))) 
                                     + ((abs (rgb[2] - bestand[j][5]))*(abs (rgb[2] - bestand[j][5])))),bestand[j][6]};
-                                            cout<<"PB Tr"<<endl;
-                                            blikkenB.push_back(tmp2);
+            blikkenB.push_back(tmp2);
         }
     }
+    \
     else{
         for(unsigned int k = 0; k < bestand.size(); k++){
-            cout<< " false "<< k<< endl;
             vector<long int> tmp1 = {(((abs (rgb[0] - bestand[k][0]))*(abs (rgb[0] - bestand[k][0]))) 
                                     + ((abs (rgb[1] - bestand[k][1]))*(abs (rgb[1] - bestand[k][1]))) 
                                     + ((abs (rgb[2] - bestand[k][2]))*(abs (rgb[2] - bestand[k][2])))),bestand[k][6]};
-                                    blikkenA.push_back(tmp1);
+            blikkenA.push_back(tmp1);
         }
     }
     blikje(blikkenA);
@@ -142,7 +140,7 @@ void kleurscanA(){
             BP.set_sensor_type(PORT_2, SENSOR_TYPE_NXT_COLOR_OFF);
             for(int i=0; i<2;i++){
                 rgbaf(rgbA, false);
-                // return rgbaf(rgbB, true);
+                return rgbaf(rgbB, true);
         }
     }
 }
