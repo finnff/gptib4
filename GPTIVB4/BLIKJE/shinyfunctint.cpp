@@ -114,7 +114,17 @@ void exit_signal_handler(int signo){
 }
 
 int main(){
+    BP.detect();
+    // check port
+    BP.set_sensor_type(PORT_2, SENSOR_TYPE_NXT_ULTRASONIC);
+    sensor_ultrasonic_t Ultrasonic2;
     signal(SIGINT, exit_signal_handler); // register the exit function for Ctrl+C
-    kleurscan();
+    if (PORT_2, Ultrasonic2) == 0) {
+        // afstand checken
+        if (Ultrasonic2.cm <= 8) {
+            sleep(1);
+            kleurscan();
+        }
+    }
 }
 
