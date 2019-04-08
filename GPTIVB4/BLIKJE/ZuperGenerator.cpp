@@ -103,14 +103,14 @@ int main(){
     for(int i = 0; i< 10;i++){
         kleurscanA();
     }
-    cout<< "Rgb A waardes: "<< endl:
+    cout<< "Rgb A waardes: "<< endl;
     for(size_t j=0;j<superA.size();j++){
         for(size_t k =0;k<superA[j].size();k++){
             cout << superA[j][k]<<","<<endl;
         }
         cout<<endl;
     }
-    cout<< "Rgb A waardes: "<< endl:
+    cout<< "Rgb A waardes: "<< endl;
     for(size_t j=0;j<superA.size();j++){
         for(size_t k =0;k<superA[j].size();k++){
             cout << superA[j][k]<<","<<endl;
