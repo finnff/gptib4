@@ -85,6 +85,7 @@ void kleurscanA(){
             BP.set_sensor_type(PORT_2, SENSOR_TYPE_NXT_COLOR_OFF);
             superA.push_back(rgbA);
             superB.push_back(rgbB);
+            break;
         }
     }
 }
@@ -111,7 +112,7 @@ int main(){
         }
         cout<<endl;
     }
-    
+
     cout<< "Rgb B waardes: "<< endl;
     for(size_t j=0;j<superA.size();j++){
         for(size_t k =0;k<superB[j].size();k++){
