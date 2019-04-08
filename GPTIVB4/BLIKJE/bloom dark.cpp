@@ -55,7 +55,7 @@ void rgbaf(vector<int> rgb, bool check){
             blikkenB.push_back(tmp2);
         }
     }
-    \
+    
     else{
         for(unsigned int k = 0; k < bestand.size(); k++){
             vector<long int> tmp1 = {(((abs (rgb[0] - bestand[k][0]))*(abs (rgb[0] - bestand[k][0]))) 
