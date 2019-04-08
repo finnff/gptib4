@@ -121,10 +121,15 @@ int main(){
     wit = kleurscan();
     for(unsigned int i = 0; i < 3; i++){
         cout << "A-zwart: " << zwart[i] << endl;
+    }
+    for(unsigned int k = 0; k < 3; k++){
         cout << "B-zwart: " << wit[i+3] << endl;
     }
-    for(unsigned int j = 0; j < 3; j++){
+    for(unsigned int m = 0; m < 3; m++){
         cout << "A-wit: " << wit[j] << endl;
+    }
+    for(unsigned int j = 0; j < 3; j++){
+        
         cout << "B-wit: " << zwart[j+3] << endl;
     }
     // vector <int> scan = kleurscan();
