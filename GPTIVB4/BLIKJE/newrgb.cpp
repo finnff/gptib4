@@ -97,7 +97,7 @@ int main(){
     sleep(10);
     vector <int> scan = kleurscan();
     vector <int> gemscan = {};
-    for(unsigned int i = 0; i < 2; i++){
+    for(unsigned int i = 0; i < 3; i++){
         gemscan.push_back(((scan[i]-zwart[i])*100)/(wit[i]-zwart[i]));
         cout << ((scan[i]-zwart[i])*100)/(wit[i]-zwart[i]) << endl;
     }
