@@ -95,7 +95,7 @@ int main(){
     cout << "zwart-wit scan: z" << endl;
     cout << "blik scan: b" << endl;
     cout << "kies een soort scan: " << flush;
-    cin << input;
+    cin >> input;
     if (input = 'z') {
         zwart = kleurscan();
         for(unsigned int i = 0; i < 3; i++)
