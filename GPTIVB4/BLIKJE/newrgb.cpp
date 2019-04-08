@@ -10,10 +10,16 @@
 using namespace std;
 BrickPi3 BP;
 
-int run = 0;
+bool keypress(){
+    if (GetKeyState('A') & 0x8000) {
+        cout << "A was pressed" << endl;
+        return true;
+    }
+}
 vector <vector <int>> blikken {};
 vector <string> namen {"Cola", "Sprite", "Witte Monster","Sinas", "Hertog Jan","Monster Zwart","Bavaria"};
-vector <int> zwartwit {};
+vector <int> zwart {};
+vector <int> wit {};
 
 vector<vector<int>> bestand = {
 {69,20,15,0}, //(Cola)
@@ -91,15 +97,17 @@ void exit_signal_handler(int signo){
 
 int main(){
     signal(SIGINT, exit_signal_handler); // register the exit function for Ctrl+C
-    vector <int> zwart = kleurscan();
+// scan wit-zwart functie
+    zwart = kleurscan();
     sleep(5);
-    vector <int> wit = kleurscan();
-    sleep(5);
-    vector <int> scan = kleurscan();
-    vector <int> gemscan = {};
-    for(unsigned int i = 0; i < 3; i++){
-        gemscan.push_back(((scan[i]-zwart[i])*100)/(wit[i]-zwart[i]));
-        cout << ((scan[i]-zwart[i])*100)/(wit[i]-zwart[i]) << endl;
+    wit = kleurscan();
+    if (keypress = true) {
+        vector <int> scan = kleurscan();
+        vector <int> gemscan = {};
+        for(unsigned int i = 0; i < 3; i++){
+            gemscan.push_back(((scan[i]-zwart[i])*100)/(wit[i]-zwart[i]));
+            cout << ((scan[i]-zwart[i])*100)/(wit[i]-zwart[i]) << endl;
+        }
     }
     // rgbaf(gemscan);
 }
