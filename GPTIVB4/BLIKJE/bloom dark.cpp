@@ -28,13 +28,13 @@ vector<vector<long int>> bestand = {
  /// RRRRRRR,BBBBB,GGGGG
 void exit_signal_handler(int signo);
 
-void blikje(vector<vector< long int>> blikken){
+void blikje(vector<vector< long int>> yeet){
     int teempo1 = 1000000;
     int teempo2 = 0;
-    for(unsigned int i = 0; i < blikken.size(); i++){
-        if (blikken[i][0] < teempo1) {
-            teempo1 = blikken[i][0];
-            teempo2 = blikken[i][1];
+    for(unsigned int i = 0; i < yeet.size(); i++){
+        if (yeet[i][0] < teempo1) {
+            teempo1 = yeet[i][0];
+            teempo2 = yeet[i][1];
         }
     }
     cout << namen[teempo2] << " with error points "<< teempo1 << endl;
@@ -129,7 +129,7 @@ void kleurscanA(){
             BP.set_sensor_type(PORT_2, SENSOR_TYPE_NXT_COLOR_OFF);
             for(int i=0; i<2;i++){
                 rgbaf(rgbA, false);
-                rgbaf(rgbB, true);
+                return rgbaf(rgbB, true);
         }
     }
 }
