@@ -143,39 +143,6 @@ void kleurscanB(){
     }
 }
 
-            int aantal =0;
-            while(time <= 36){
-                aantal++;
-                red += Color1.reflected_red;
-                green += Color1.reflected_green;
-                blue += Color1.reflected_blue;
-                ambient += Color1.ambient;
-                usleep(70000);
-                time++;
-            }
-            ambient = ambient / aantal;
-            red = (red / aantal) - ambient;
-            green = (green / aantal) - ambient;
-            blue = (blue / aantal) - ambient;
-            if (red < 0) {
-                red = 0;
-            }
-            if (green < 0) {
-                green = 0;
-            }
-            if (blue < 0) {
-                blue = 0;
-            }
-            
-            vector <int> rgb = {red, green, blue};
-            BP.reset_all();    // Reset everything so there are no run-away motors
-            BP.set_sensor_type(PORT_1, SENSOR_TYPE_NXT_COLOR_OFF); // turns off rbg
-            return rgbaf(rgb);
-        }
-    }
-}
-
-
 
 
 
