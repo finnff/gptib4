@@ -11,7 +11,7 @@ using namespace std;
 BrickPi3 BP;
 // sqrd version  
 
-vector <vector <long int>> blikken {};
+//vector <vector <long int>> blikken {};
 vector <string> namen {"Cola", "Sprite", "Witte Monster","Sinas", "Hertog Jan","Monster Zwart","Bavaria"};
 
 vector<vector<long int>> bestand = {
@@ -39,6 +39,7 @@ void blikje(vector<vector< long int>> blikken){
     cout << namen[teempo2] << " with error points "<< teempo1 << endl;
 }
 void rgbaf(vector<int> rgb){
+    vector <vector <long int>> blikken {};
     for(unsigned int j = 0; j < bestand.size(); j++){
         vector<long int> tmp1 = {(((abs (rgb[0] - bestand[j][0]))*(abs (rgb[0] - bestand[j][0]))) 
                                 + ((abs (rgb[1] - bestand[j][1]))*(abs (rgb[1] - bestand[j][1]))) 
