@@ -37,8 +37,11 @@ void blikje(vector<vector< long int>> yeet){
             teempo2 = yeet[i][1];
         }
     }
+    if (teempo1 < 999999){
     cout << namen[teempo2] << " with error points "<< teempo1 << endl;
+    }
 }
+
 void rgbaf(vector<int> rgb, bool check){
     vector <vector <long int>> blikkenA {};
     vector <vector <long int>> blikkenB {};
