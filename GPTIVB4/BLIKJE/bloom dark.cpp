@@ -50,7 +50,7 @@ void rgbaf(vector<int> rgb){
 }
 
 
-void kleurscan(){
+void kleurscanA(){
     BP.detect();
     BP.set_sensor_type(PORT_1, SENSOR_TYPE_NXT_COLOR_FULL);
     BP.offset_motor_encoder(PORT_B, BP.get_motor_encoder(PORT_B));
@@ -65,6 +65,84 @@ void kleurscan(){
             int blue = 0;
             int ambient = 0;
             int time = 0;
+            int aantal =0;
+            while(time <= 36){
+                aantal++;
+                red += Color1.reflected_red;
+                green += Color1.reflected_green;
+                blue += Color1.reflected_blue;
+                ambient += Color1.ambient;
+                usleep(70000);
+                time++;
+            }
+            ambient = ambient / aantal;
+            red = (red / aantal) - ambient;
+            green = (green / aantal) - ambient;
+            blue = (blue / aantal) - ambient;
+            if (red < 0) {
+                red = 0;
+            }
+            if (green < 0) {
+                green = 0;
+            }
+            if (blue < 0) {
+                blue = 0;
+            }
+            
+            vector <int> rgbA = {red, green, blue};
+            BP.reset_all();    // Reset everything so there are no run-away motors
+            BP.set_sensor_type(PORT_1, SENSOR_TYPE_NXT_COLOR_OFF); // turns off rbg
+            return rgbaf(rgbA);
+        }
+    }
+}
+void kleurscanB(){
+    BP.detect();
+    BP.set_sensor_type(PORT_2, SENSOR_TYPE_NXT_COLOR_FULL);
+    BP.offset_motor_encoder(PORT_B, BP.get_motor_encoder(PORT_B));
+    BP.offset_motor_encoder(PORT_C, BP.get_motor_encoder(PORT_C));
+    sensor_color_t      Color2;
+    while(true){
+        if(BP.get_sensor(PORT_2, Color2) == 0){
+            BP.set_motor_power(PORT_B, -20); //rotation = ~2.5 sec
+            BP.set_motor_dps(PORT_C, 180);
+            int red = 0;
+            int green = 0;
+            int blue = 0;
+            int ambient = 0;
+            int time = 0;
+            int aantal =0;
+            while(time <= 36){
+                aantal++;
+                red += Color2.reflected_red;
+                green += Color2.reflected_green;
+                blue += Color2.reflected_blue;
+                ambient += Color2.ambient;
+                usleep(70000);
+                time++;
+            }
+            ambient = ambient / aantal;
+            red = (red / aantal) - ambient;
+            green = (green / aantal) - ambient;
+            blue = (blue / aantal) - ambient;
+            if (red < 0) {
+                red = 0;
+            }
+            if (green < 0) {
+                green = 0;
+            }
+            if (blue < 0) {
+                blue = 0;
+            }
+            
+            vector <int> rgbB = {red, green, blue};
+            BP.reset_all();    // Reset everything so there are no run-away motors
+            BP.set_sensor_type(PORT_2, SENSOR_TYPE_NXT_COLOR_OFF); // turns off rbg
+            return rgbaf(rgbB);
+        }
+    }
+}
+
             int aantal =0;
             while(time <= 36){
                 aantal++;
@@ -110,6 +188,7 @@ void exit_signal_handler(int signo){
 
 int main(){
     signal(SIGINT, exit_signal_handler); // register the exit function for Ctrl+C
-    kleurscan();
+    kleurscanA();
+    kleurscanB();
 }
 
