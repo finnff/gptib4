@@ -58,11 +58,14 @@ void kleurscan(){
         if(BP.get_sensor(PORT_1, Color1) == 0){
             BP.set_motor_power(PORT_B, -20); //rotation = ~2.5 sec
             BP.set_motor_dps(PORT_C, 180);
+            int blue = 0;
+            int red = 0;
+            int green = 0;
             while(time <= 36){
                 aantal++;
-                int red += Color1.reflected_red;
-                int green += Color1.reflected_green;
-                int blue += Color1.reflected_blue;
+                red += Color1.reflected_red;
+                green += Color1.reflected_green;
+                blue += Color1.reflected_blue;
                 usleep(70000);
                 time++;
             }
