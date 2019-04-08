@@ -63,7 +63,6 @@ void kleurscanA(){
             if (blueA < 0) {
                 blueA = 0;
             }
-
             ambientB = ambientB / aantal;
             redB = (redB / aantal) - ambientB;
             greenB = (greenB / aantal) - ambientB;
@@ -77,7 +76,6 @@ void kleurscanA(){
             if (blueB < 0) {
                 blueB = 0;
             }
-            
             vector <int> rgbA = {redA, greenA, blueA};
             vector <int> rgbB = {redB, greenB, blueB};
             BP.reset_all();    // Reset everything so there are no run-away motors
@@ -105,36 +103,38 @@ int main(){
     int toterb=0;
     int totegb=0;
     int totebb=0;
+    int revolutions = 10;
+
     
 
     signal(SIGINT, exit_signal_handler); // register the exit function for Ctrl+C
-    for(int i = 0; i< 10;i++){
+
+
+    for(int i = 0; i< revolutions;i++){
         cout << i << endl;
         kleurscanA();
     }
-
     cout<< "Rgb A waardes: "<< endl;
     for(size_t j=0;j<superA.size();j++){
         for(size_t k =0; k<superA[j].size();k++){
             cout << superA[j][k]<<","<<flush;
         }
-
-        totera=totera + superA[j][0];
-        totega=totega + superA[j][1];
-        toteba=toteba + superA[j][2];
+        totera+= superA[j][0];
+        totega+= superA[j][1];
+        toteba+= superA[j][2];
         cout<<endl;
     }
-
     cout<< "Rgb B waardes: "<< endl;
-
     for(size_t j=0;j<superB.size();j++){
         for(size_t k =0;k<superB[j].size();k++){
             cout << superB[j][k]<<","<<flush;
         }
-        toterb=toterb + superB[j][0];
-        totegb=totegb + superB[j][1];
-        totebb=totebb + superB[j][2];
+        toterb+=superB[j][0];
+        totegb+=superB[j][1];
+        totebb+=superB[j][2];
         cout<<endl;
     }
-    cout << (totera/10)<<", "<<(totega/10)<<", "<<(toteba/10)<<", "<< (toterb/10)<<", "<<(totegb/10)<<", "<<(totebb/10)<<", "<<endl;
+    cout<<endl;
+    cout << (totera/10)<<", "<<(totega/10)<<", "<<(toteba/10)<<", "<< 
+    (toterb/10)<<", "<<(totegb/10)<<", "<<(totebb/10)<<", "<<endl;
 }
