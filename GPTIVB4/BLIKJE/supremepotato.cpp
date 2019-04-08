@@ -116,12 +116,12 @@ void exit_signal_handler(int signo){
 
 int main(){
     signal(SIGINT, exit_signal_handler); // register the exit function for Ctrl+C
-    char input;
+    string input;
     cout << "zwart-wit scan: z" << endl;
     cout << "blik scan: b" << endl;
     cout << "kies een soort scan: " << flush;
     cin >> input;
-    if (input = 'z') {
+    if (input = "z") {
         zwart = kleurscan();
         for(unsigned int i = 0; i < 6; i++){
             cout << "zwart: " << zwart[i] << endl;
@@ -133,7 +133,7 @@ int main(){
         }
 
     }
-    if (input = 'b') {
+    if (input = "b") {
         vector <int> scan = kleurscan();
         vector <int> gemscan = {};
         for(unsigned int i = 0; i < 6; i++){
