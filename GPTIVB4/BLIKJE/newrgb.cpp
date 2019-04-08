@@ -10,12 +10,6 @@
 using namespace std;
 BrickPi3 BP;
 
-bool keypress(){
-    if (GetKeyState('A') & 0x8000) {
-        cout << "A was pressed" << endl;
-        return true;
-    }
-}
 vector <vector <int>> blikken {};
 vector <string> namen {"Cola", "Sprite", "Witte Monster","Sinas", "Hertog Jan","Monster Zwart","Bavaria"};
 vector <int> zwart {};
@@ -101,7 +95,7 @@ int main(){
     zwart = kleurscan();
     sleep(5);
     wit = kleurscan();
-    if (keypress = true) {
+    if (GetKeyState(115) == true) {
         vector <int> scan = kleurscan();
         vector <int> gemscan = {};
         for(unsigned int i = 0; i < 3; i++){
@@ -111,4 +105,3 @@ int main(){
     }
     // rgbaf(gemscan);
 }
-
