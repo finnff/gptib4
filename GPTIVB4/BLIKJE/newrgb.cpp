@@ -80,6 +80,7 @@ vector <int> kleurscan(){
             return rgb;
     }
 }
+}
 
 void exit_signal_handler(int signo){
     if(signo == SIGINT){
