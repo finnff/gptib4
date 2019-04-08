@@ -64,6 +64,7 @@ void rgbaf(vector<int> rgb, bool check){
         }
     }
     if(check == true){
+        cout<<"PB Tr"<<endl;
         blikkenB.push_back(tmp2);
     }
     else{
