@@ -10,23 +10,22 @@
 using namespace std;
 BrickPi3 BP;
 
-int run = 0;
+
 vector <vector <int>> blikken {};
 vector <string> namen {"Cola", "Sprite", "Witte Monster","Sinas", "Hertog Jan","Monster Zwart","Bavaria"};
 
 vector<vector<int>> bestand = {
-{69,20,15,0}, //(Cola)
-{54,73,26,1}, //(sprite)
-{55,56,46,2}, //(witte monster)
-{71,36,19,3}, //(Sinas)
-{70,40,22,4}, //(Hertog)
-{34,37,26,5}, // Zwarte monster 
-{34,46,46,6}  // Bavaria 
+{140,47,37,0}, //(Cola)
+{1154,1173,1126,1}, //(sprite)
+{116,123,104,2}, //(witte monster)
+{1171,1136,1119,3}, //(Sinas)
+{157,110,62,4}, //(Hertog)
+{85,86,81,5}, // Zwarte monster 
+{90,120,130,6}  // Bavaria 
 };
 
  /// RRRRRRR,BBBBB,GGGGG
 void exit_signal_handler(int signo);
-void kleurscan();
 
 void blikje(vector<vector<int>> blikken){
     int teempo1 = 1000000;
@@ -37,13 +36,6 @@ void blikje(vector<vector<int>> blikken){
             teempo2 = blikken[i][1];
         }
     }
-    cout << namen[teempo2] << " with error points "<< teempo1 << endl;
-    if (teempo1 > 50 && run < 1) {
-        run++;
-        cout << "error to high trying again" << endl;
-        kleurscan();
-    }
-    
     cout << namen[teempo2] << " with error points "<< teempo1 << endl;
 }
 void rgbaf(vector<int> rgb){
