@@ -37,7 +37,6 @@ void kleurscanA(){
             int ambientB = 0;
             int time = 0;
             int aantal =0;
-            cout<< " Yeet" << endl;
             while(time <= 36){
                 aantal++;
                 redA += Color1.reflected_red;
@@ -86,6 +85,7 @@ void kleurscanA(){
             BP.set_sensor_type(PORT_2, SENSOR_TYPE_NXT_COLOR_OFF);
             superA.push_back(rgbA);
             superB.push_back(rgbB);
+            break;
         }
     }
 }
@@ -101,19 +101,22 @@ void exit_signal_handler(int signo){
 int main(){
     signal(SIGINT, exit_signal_handler); // register the exit function for Ctrl+C
     for(int i = 0; i< 10;i++){
+        cout << i << endl;
         kleurscanA();
     }
+
     cout<< "Rgb A waardes: "<< endl;
     for(size_t j=0;j<superA.size();j++){
         for(size_t k =0;k<superA[j].size();k++){
-            cout << superA[j][k]<<","<<endl;
+            cout << superA[j][k]<<","<<flush;
         }
         cout<<endl;
     }
-    cout<< "Rgb A waardes: "<< endl;
+
+    cout<< "Rgb B waardes: "<< endl;
     for(size_t j=0;j<superA.size();j++){
-        for(size_t k =0;k<superA[j].size();k++){
-            cout << superA[j][k]<<","<<endl;
+        for(size_t k =0;k<superB[j].size();k++){
+            cout << superB[j][k]<<","<<flush;
         }
         cout<<endl;
     }
