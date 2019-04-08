@@ -7,6 +7,7 @@
 #include <cmath>
 #include <string>
 
+
 using namespace std;
 BrickPi3 BP;
 // sqrd version  
@@ -57,46 +58,74 @@ void kleurscanA(){
     BP.offset_motor_encoder(PORT_B, BP.get_motor_encoder(PORT_B));
     BP.offset_motor_encoder(PORT_C, BP.get_motor_encoder(PORT_C));
     sensor_color_t      Color1;
+    sensor_color_t      Color2;
     while(true){
-        if(BP.get_sensor(PORT_1, Color1) == 0){
+        if((BP.get_sensor(PORT_1, Color1) == 0) && (BP.get_sensor(PORT_2, Color2) == 0)){
             BP.set_motor_power(PORT_B, -20); //rotation = ~2.5 sec
             BP.set_motor_dps(PORT_C, 180);
-            int red = 0;
-            int green = 0;
-            int blue = 0;
-            int ambient = 0;
+            int redA = 0;
+            int greenA = 0;
+            int blueA = 0;
+            int ambientA = 0;
+            int redB = 0;
+            int greenB = 0;
+            int blueB = 0;
+            int ambientB = 0;
             int time = 0;
             int aantal =0;
             while(time <= 36){
                 aantal++;
-                red += Color1.reflected_red;
-                green += Color1.reflected_green;
-                blue += Color1.reflected_blue;
-                ambient += Color1.ambient;
+                redA += Color1.reflected_red;
+                greenA += Color1.reflected_green;
+                blueA += Color1.reflected_blue;
+                ambientA += Color1.ambient;
+                redB += Color2.reflected_red;
+                greenB += Color2.reflected_green;
+                blueB += Color2.reflected_blue;
+                ambientB += Color2.ambient;
                 usleep(70000);
                 time++;
             }
-            ambient = ambient / aantal;
-            red = (red / aantal) - ambient;
-            green = (green / aantal) - ambient;
-            blue = (blue / aantal) - ambient;
-            if (red < 0) {
-                red = 0;
+            ambientA = ambientA / aantal;
+            redA = (redA / aantal) - ambientA;
+            greenA = (greenA / aantal) - ambientA;
+            blueA = (blueB / aantal) - ambientA;
+            if (redA < 0) {
+                redA = 0;
             }
-            if (green < 0) {
-                green = 0;
+            if (greenA < 0) {
+                greenA = 0;
             }
-            if (blue < 0) {
-                blue = 0;
+            if (blueA < 0) {
+                blueA = 0;
+            }
+
+            ambientB = ambientB / aantal;
+            redB = (redB / aantal) - ambientB;
+            greenB = (greenB / aantal) - ambientB;
+            blueB = (blueB / aantal) - ambientB;
+            if (redB < 0) {
+                redB = 0;
+            }
+            if (greenB < 0) {
+                greenB = 0;
+            }
+            if (blueB < 0) {
+                blueB = 0;
             }
             
-            vector <int> rgbA = {red, green, blue};
+            vector <int> rgbA = {redA, greenA, blueA};
+            vector <int> rgbB = {redB, greenB, blueB};
             BP.reset_all();    // Reset everything so there are no run-away motors
             BP.set_sensor_type(PORT_1, SENSOR_TYPE_NXT_COLOR_OFF); // turns off rbg
+            BP.set_sensor_type(PORT_2, SENSOR_TYPE_NXT_COLOR_OFF);
             return rgbaf(rgbA);
+            return rgbaf(rgbB);
         }
     }
 }
+
+
 void kleurscanB(){
     BP.detect();
     BP.set_sensor_type(PORT_2, SENSOR_TYPE_NXT_COLOR_FULL);
@@ -153,6 +182,6 @@ void exit_signal_handler(int signo){
 int main(){
     signal(SIGINT, exit_signal_handler); // register the exit function for Ctrl+C
     kleurscanA();
-    kleurscanB();
+    //kleurscanB();//
 }
 
