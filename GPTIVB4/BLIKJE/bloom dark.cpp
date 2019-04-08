@@ -39,16 +39,23 @@ void blikje(vector<vector< long int>> blikken){
     }
     cout << namen[teempo2] << " with error points "<< teempo1 << endl;
 }
-void rgbaf(vector<int> rgb){
-    vector <vector <long int>> blikken {};
+void rgbaf(vector<int> rgb, bool check){
+    vector <vector <long int>> blikkenA {};
+    vector <vector <long int>> blikkenB {};
     for(unsigned int j = 0; j < bestand.size(); j++){
         vector<long int> tmp1 = {(((abs (rgb[0] - bestand[j][0]))*(abs (rgb[0] - bestand[j][0]))) 
                                 + ((abs (rgb[1] - bestand[j][1]))*(abs (rgb[1] - bestand[j][1]))) 
                                 + ((abs (rgb[2] - bestand[j][2]))*(abs (rgb[2] - bestand[j][2])))),bestand[j][3]};
-        
-        blikken.push_back(tmp1);
+        if(check == true){
+        blikkenB.push_back(tmp1);
+        }
+        else{
+            blikkenA.push_back(tmp1);
+        }
+
     }
-    return blikje(blikken);
+    blikje(blikkenA);
+    return blikje(blikkenB);
 }
 
 
@@ -121,8 +128,8 @@ void kleurscanA(){
             BP.set_sensor_type(PORT_1, SENSOR_TYPE_NXT_COLOR_OFF); // turns off rbg
             BP.set_sensor_type(PORT_2, SENSOR_TYPE_NXT_COLOR_OFF);
             for(int i=0; i<2;i++){
-                 rgbaf(rgbA);
-                 return rgbaf(rgbB);
+                 rgbaf(rgbA, false);
+                 return rgbaf(rgbB, true);
         }
     }
 }
