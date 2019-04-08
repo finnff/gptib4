@@ -12,8 +12,8 @@ BrickPi3 BP;
 
 vector <vector <int>> blikken {};
 vector <string> namen {"Cola", "Sprite", "Witte Monster","Sinas", "Hertog Jan","Monster Zwart","Bavaria"};
-vector <int> zwart {743, 746, 733};
-vector <int> wit {383, 385, 387};
+vector <int> zwart {743, 746, 733, 743, 746, 733};
+vector <int> wit {383, 385, 387, 383, 385, 387};
 
 vector<vector<int>> bestand = {
 {69,20,15,0}, //(Cola)
