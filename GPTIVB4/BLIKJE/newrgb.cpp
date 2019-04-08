@@ -48,7 +48,7 @@ void rgbaf(vector<int> rgb){
     return blikje(blikken);
 }
 
-void kleurscan(){
+vector <int> kleurscan(){
     BP.detect();
     BP.set_sensor_type(PORT_1, SENSOR_TYPE_NXT_COLOR_FULL);
     BP.offset_motor_encoder(PORT_B, BP.get_motor_encoder(PORT_B));
@@ -61,6 +61,8 @@ void kleurscan(){
             int blue = 0;
             int red = 0;
             int green = 0;
+            int aantal = 0;
+            int time = 0;
             while(time <= 36){
                 aantal++;
                 red += Color1.reflected_red;
@@ -76,7 +78,6 @@ void kleurscan(){
             BP.reset_all();    // Reset everything so there are no run-away motors
             BP.set_sensor_type(PORT_1, SENSOR_TYPE_NXT_COLOR_OFF); // turns off rbg
             return rgb;
-        }
     }
 }
 
@@ -95,8 +96,7 @@ int main(){
     sleep(10);
     vector <int> scan = kleurscan();
     vector <int> gemscan = {};
-    for(unsigned int i = 0; i < 2; i++)
-    {
+    for(unsigned int i = 0; i < 2; i++){
         gemscan.push_back(((scan[i]-zwart[i])*100)/(wit[i]-zwart[i]));
         cout << ((scan[i]-zwart[i])*100)/(wit[i]-zwart[i]) << endl;
     }
