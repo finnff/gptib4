@@ -4,69 +4,15 @@
 #include <signal.h>
 #include <iomanip>
 #include <vector>
-#include <cmath>
-#include <string>
-
 
 using namespace std;
 BrickPi3 BP;
-// sqrd version  
 
-//vector <vector <long int>> blikken {};
-vector <string> namen {"Cola", "Sprite", "Witte Monster","Sinas", "Hertog Jan","Monster Zwart","Bavaria"};
-
-vector<vector<long int>> bestand = {
-{140,47,37,140,47,37,0}, //(Cola)
-{1154,1173,1126,1154,1173,1126,1}, //(sprite)
-{116,123,104,116,123,104,2}, //(witte monster)
-{1171,1136,1119,1171,1136,1119,3}, //(Sinas)
-{157,110,62,157,110,62,4}, //(Hertog)
-{85,86,81,85,86,81,5}, // Zwarte monster 
-{25,38,44,25,38,44,6}  // Bavaria 
-};
-
- /// RRRRRRR,BBBBB,GGGGG
 void exit_signal_handler(int signo);
 
-void blikje(vector<vector< long int>> yeet){
-    int teempo1 = 1000000;
-    int teempo2 = 0;
-    for(unsigned int i = 0; i < yeet.size(); i++){
-        if (yeet[i][0] < teempo1) {
-            teempo1 = yeet[i][0];
-            teempo2 = yeet[i][1];
-        }
-    }
-    if (teempo1 < 999999){
-    cout << namen[teempo2] << " with error points "<< teempo1 << endl;
-    }
-}
-
-void rgbaf(vector<int> rgb, bool check){
-    vector <vector <long int>> blikkenA {};
-    vector <vector <long int>> blikkenB {};
-    vector<long int> tmp2;
-    vector<long int> tmp1;
-    if(check == true){
-        for(unsigned int j = 0; j < bestand.size(); j++){
-            vector<long int> tmp2 = {(((abs (rgb[0] - bestand[j][3]))*(abs (rgb[0] - bestand[j][3]))) 
-                                    + ((abs (rgb[1] - bestand[j][4]))*(abs (rgb[1] - bestand[j][4]))) 
-                                    + ((abs (rgb[2] - bestand[j][5]))*(abs (rgb[2] - bestand[j][5])))),bestand[j][6]};
-            blikkenB.push_back(tmp2);
-        }
-    }
-    
-    else{
-        for(unsigned int k = 0; k < bestand.size(); k++){
-            vector<long int> tmp1 = {(((abs (rgb[0] - bestand[k][0]))*(abs (rgb[0] - bestand[k][0]))) 
-                                    + ((abs (rgb[1] - bestand[k][1]))*(abs (rgb[1] - bestand[k][1]))) 
-                                    + ((abs (rgb[2] - bestand[k][2]))*(abs (rgb[2] - bestand[k][2])))),bestand[k][6]};
-            blikkenA.push_back(tmp1);
-        }
-    }
-    blikje(blikkenA);
-    blikje(blikkenB);
-}
+// waarde bestand importeren
+vector<vector<int>> superA;
+vector<vector<int>> superB;
 
 
 void kleurscanA(){
@@ -138,12 +84,11 @@ void kleurscanA(){
             BP.reset_all();    // Reset everything so there are no run-away motors
             BP.set_sensor_type(PORT_1, SENSOR_TYPE_NXT_COLOR_OFF); // turns off rbg
             BP.set_sensor_type(PORT_2, SENSOR_TYPE_NXT_COLOR_OFF);
-                rgbaf(rgbA, false);
-                return rgbaf(rgbB, true);
+            superA.push_back(rgbA);
+            superB.push_back(rgbB);
         }
     }
 }
-
 
 
 void exit_signal_handler(int signo){
@@ -155,6 +100,22 @@ void exit_signal_handler(int signo){
 
 int main(){
     signal(SIGINT, exit_signal_handler); // register the exit function for Ctrl+C
-    kleurscanA();
+    for(int i = 0; i< 10;i++){
+        kleurscanA();
+    }
+    cout<< "Rgb A waardes: "<< endl:
+    for(size_t j=0;j<superA.size();j++){
+        for(size_t k =0;k<superA[j].size();k++){
+            cout << superA[j][k]<<","<<endl;
+        }
+        cout<<endl;
+    }
+    cout<< "Rgb A waardes: "<< endl:
+    for(size_t j=0;j<superA.size();j++){
+        for(size_t k =0;k<superA[j].size();k++){
+            cout << superA[j][k]<<","<<endl;
+        }
+        cout<<endl;
+    }
 }
 
