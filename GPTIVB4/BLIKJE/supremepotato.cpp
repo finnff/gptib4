@@ -56,7 +56,7 @@ void rgbaf(vector<int> rgb){
         
     }
     blikken.push_back(tmp1);
-    blikje (blikken)
+    blikje (blikken);
 }
 
 vector <int> kleurscan(){
