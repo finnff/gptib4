@@ -11,10 +11,10 @@ using namespace std;
 BrickPi3 BP;
 
 
-vector <vector <int>> blikken {};
+vector <vector <long int>> blikken {};
 vector <string> namen {"Cola", "Sprite", "Witte Monster","Sinas", "Hertog Jan","Monster Zwart","Bavaria"};
 
-vector<vector<int>> bestand = {
+vector<vector<long int>> bestand = {
 {140,47,37,0}, //(Cola)
 {1154,1173,1126,1}, //(sprite)
 {116,123,104,2}, //(witte monster)
@@ -27,7 +27,7 @@ vector<vector<int>> bestand = {
  /// RRRRRRR,BBBBB,GGGGG
 void exit_signal_handler(int signo);
 
-void blikje(vector<vector<int>> blikken){
+void blikje(vector<vector< long int>> blikken){
     int teempo1 = 1000000;
     int teempo2 = 0;
     for(unsigned int i = 0; i < blikken.size(); i++){
@@ -40,7 +40,9 @@ void blikje(vector<vector<int>> blikken){
 }
 void rgbaf(vector<int> rgb){
     for(unsigned int j = 0; j < bestand.size(); j++){
-        vector<int> tmp1 = {(abs (rgb[0] - bestand[j][0])) + (abs (rgb[1] - bestand[j][1])) + (abs (rgb[2] - bestand[j][2])),bestand[j][3]};
+        vector<long int> tmp1 = {(((abs (rgb[0] - bestand[j][0]))*(abs (rgb[0] - bestand[j][0]))) 
+                                + ((abs (rgb[1] - bestand[j][1]))*(abs (rgb[1] - bestand[j][1]))) 
+                                + ((abs (rgb[2] - bestand[j][2]))*(abs (rgb[2] - bestand[j][2])))),bestand[j][3]};
         blikken.push_back(tmp1);
     }
     return blikje(blikken);
