@@ -9,7 +9,7 @@
 
 using namespace std;
 BrickPi3 BP;
-
+// sqrd version  
 
 vector <vector <long int>> blikken {};
 vector <string> namen {"Cola", "Sprite", "Witte Monster","Sinas", "Hertog Jan","Monster Zwart","Bavaria"};
