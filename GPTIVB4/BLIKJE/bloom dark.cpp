@@ -100,13 +100,9 @@ void kleurscanA(){
 void kleurscanB(){
     BP.detect();
     BP.set_sensor_type(PORT_2, SENSOR_TYPE_NXT_COLOR_FULL);
-    BP.offset_motor_encoder(PORT_B, BP.get_motor_encoder(PORT_B));
-    BP.offset_motor_encoder(PORT_C, BP.get_motor_encoder(PORT_C));
     sensor_color_t      Color2;
     while(true){
         if(BP.get_sensor(PORT_2, Color2) == 0){
-            BP.set_motor_power(PORT_B, -20); //rotation = ~2.5 sec
-            BP.set_motor_dps(PORT_C, 180);
             int red = 0;
             int green = 0;
             int blue = 0;
