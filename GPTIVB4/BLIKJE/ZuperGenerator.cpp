@@ -120,8 +120,8 @@ int main(){
         }
 
         totera=totera + superA[j][0];
-        totega=totera + superA[j][1];
-        toteba=totera + superA[j][2];
+        totega=totega + superA[j][1];
+        toteba=toteba + superA[j][2];
         cout<<endl;
     }
 
@@ -132,8 +132,8 @@ int main(){
             cout << superB[j][k]<<","<<flush;
         }
         toterb=toterb + superB[j][0];
-        totegb=toterb + superB[j][1];
-        totebb=toterb + superB[j][2];
+        totegb=totegb + superB[j][1];
+        totebb=totebb + superB[j][2];
         cout<<endl;
     }
     cout << (totera/10)<<", "<<(totega/10)<<", "<<(toteba/10)<<", "<< (toterb/10)<<", "<<(totegb/10)<<", "<<(totebb/10)<<", "<<endl;
