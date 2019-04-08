@@ -37,7 +37,6 @@ void kleurscanA(){
             int ambientB = 0;
             int time = 0;
             int aantal =0;
-            cout<< " Yeet" << endl;
             while(time <= 36){
                 aantal++;
                 redA += Color1.reflected_red;
@@ -101,8 +100,10 @@ void exit_signal_handler(int signo){
 int main(){
     signal(SIGINT, exit_signal_handler); // register the exit function for Ctrl+C
     for(int i = 0; i< 10;i++){
+        cout << i << endl;
         kleurscanA();
     }
+
     cout<< "Rgb A waardes: "<< endl;
     for(size_t j=0;j<superA.size();j++){
         for(size_t k =0;k<superA[j].size();k++){
@@ -110,10 +111,11 @@ int main(){
         }
         cout<<endl;
     }
-    cout<< "Rgb A waardes: "<< endl;
+    
+    cout<< "Rgb B waardes: "<< endl;
     for(size_t j=0;j<superA.size();j++){
-        for(size_t k =0;k<superA[j].size();k++){
-            cout << superA[j][k]<<","<<endl;
+        for(size_t k =0;k<superB[j].size();k++){
+            cout << superB[j][k]<<","<<endl;
         }
         cout<<endl;
     }
