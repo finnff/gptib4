@@ -108,7 +108,7 @@ int main(){
     cout<< "Rgb A waardes: "<< endl;
     for(size_t j=0;j<superA.size();j++){
         for(size_t k =0;k<superA[j].size();k++){
-            cout << superA[j][k]<<","<<endl;
+            cout << superA[j][k]<<","<<flush;
         }
         cout<<endl;
     }
@@ -116,7 +116,7 @@ int main(){
     cout<< "Rgb B waardes: "<< endl;
     for(size_t j=0;j<superA.size();j++){
         for(size_t k =0;k<superB[j].size();k++){
-            cout << superB[j][k]<<","<<endl;
+            cout << superB[j][k]<<","<<flush;
         }
         cout<<endl;
     }
