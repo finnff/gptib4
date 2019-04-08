@@ -43,6 +43,7 @@ void rgbaf(vector<int> rgb){
         vector<long int> tmp1 = {(((abs (rgb[0] - bestand[j][0]))*(abs (rgb[0] - bestand[j][0]))) 
                                 + ((abs (rgb[1] - bestand[j][1]))*(abs (rgb[1] - bestand[j][1]))) 
                                 + ((abs (rgb[2] - bestand[j][2]))*(abs (rgb[2] - bestand[j][2])))),bestand[j][3]};
+        
         blikken.push_back(tmp1);
     }
     return blikje(blikken);
