@@ -45,7 +45,7 @@ void blikje(vector<vector< long int>> yeet){
 
 }
 void rgbaf(vector<int> rgb){
-    vector <int> tmp1 {};
+    vector <long int> tmp1 {};
     vector <vector <long int>> blikken {};
     for(unsigned int j = 0; j < bestand.size(); j++){
         vector<long int> tmp1 = {(((abs (rgb[0] - bestand[j][0]))*(abs (rgb[0] - bestand[j][0]))) 
@@ -103,7 +103,7 @@ vector <int> kleurscan(){
             BP.reset_all();    // Reset everything so there are no run-away motors
             BP.set_sensor_type(PORT_1, SENSOR_TYPE_NXT_COLOR_OFF); // turns off rbg
             BP.set_sensor_type(PORT_2, SENSOR_TYPE_NXT_COLOR_OFF);
-            return rgb);
+            return (rgb);
     }
 }
 
