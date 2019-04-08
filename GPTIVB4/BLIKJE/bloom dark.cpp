@@ -16,13 +16,13 @@ BrickPi3 BP;
 vector <string> namen {"Cola", "Sprite", "Witte Monster","Sinas", "Hertog Jan","Monster Zwart","Bavaria"};
 
 vector<vector<long int>> bestand = {
-{140,47,37,0}, //(Cola)
-{1154,1173,1126,1}, //(sprite)
-{116,123,104,2}, //(witte monster)
-{1171,1136,1119,3}, //(Sinas)
-{157,110,62,4}, //(Hertog)
-{85,86,81,5}, // Zwarte monster 
-{25,38,44,6}  // Bavaria 
+{140,47,37,140,47,37,0}, //(Cola)
+{1154,1173,1126,1154,1173,1126,1}, //(sprite)
+{116,123,104,116,123,104,2}, //(witte monster)
+{1171,1136,1119,1171,1136,1119,3}, //(Sinas)
+{157,110,62,157,110,62,4}, //(Hertog)
+{85,86,81,85,86,81,5}, // Zwarte monster 
+{25,38,44,25,38,44,6}  // Bavaria 
 };
 
  /// RRRRRRR,BBBBB,GGGGG
@@ -45,17 +45,27 @@ void blikje(vector<vector< long int>> yeet){
 void rgbaf(vector<int> rgb, bool check){
     vector <vector <long int>> blikkenA {};
     vector <vector <long int>> blikkenB {};
-    for(unsigned int j = 0; j < bestand.size(); j++){
-        vector<long int> tmp1 = {(((abs (rgb[0] - bestand[j][0]))*(abs (rgb[0] - bestand[j][0]))) 
-                                + ((abs (rgb[1] - bestand[j][1]))*(abs (rgb[1] - bestand[j][1]))) 
-                                + ((abs (rgb[2] - bestand[j][2]))*(abs (rgb[2] - bestand[j][2])))),bestand[j][3]};
-        if(check == true){
-        blikkenB.push_back(tmp1);
+    vector<long int> tmp2;
+    vector<long int> tmp1;
+    if(check == true){
+        for(unsigned int j = 0; j < bestand.size(); j++){
+            vector<long int> tmp2 = {(((abs (rgb[0] - bestand[j][3]))*(abs (rgb[0] - bestand[j][3]))) 
+                                    + ((abs (rgb[1] - bestand[j][4]))*(abs (rgb[1] - bestand[j][4]))) 
+                                    + ((abs (rgb[2] - bestand[j][5]))*(abs (rgb[2] - bestand[j][5])))),bestand[j][6]};
         }
-        else{
-            blikkenA.push_back(tmp1);
+    }
+    else{
+        for(unsigned int j = 0; j < bestand.size(); j++){
+            vector<long int> tmp1 = {(((abs (rgb[0] - bestand[j][0]))*(abs (rgb[0] - bestand[j][0]))) 
+                                    + ((abs (rgb[1] - bestand[j][1]))*(abs (rgb[1] - bestand[j][1]))) 
+                                    + ((abs (rgb[2] - bestand[j][2]))*(abs (rgb[2] - bestand[j][2])))),bestand[j][6]};
         }
-
+    }
+    if(check == true){
+        blikkenB.push_back(tmp2);
+    }
+    else{
+        blikkenA.push_back(tmp1);
     }
     blikje(blikkenA);
     blikje(blikkenB);
