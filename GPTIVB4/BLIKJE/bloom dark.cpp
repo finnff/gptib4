@@ -33,6 +33,7 @@ void blikje(vector<vector< long int>> yeet){
     int teempo2 = 0;
     for(unsigned int i = 0; i < yeet.size(); i++){
         if (yeet[i][0] < teempo1) {
+            cout << yeet[i][0]<< " --- "<< yeet[i][1]<<endl;
             teempo1 = yeet[i][0];
             teempo2 = yeet[i][1];
         }
