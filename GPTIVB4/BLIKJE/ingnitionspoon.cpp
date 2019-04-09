@@ -13,7 +13,7 @@ using namespace std;
 BrickPi3 BP;
 
 //vector <vector <long int>> blikken {};
-vector <string> namen {"Cola", "Nep Sprite", "Witte Monster","Sinas", "Hertog Jan","Monster Zwart","Bavaria"};
+vector <string> namen {"Cola", "Nep Sprite", "Witte Monster","Sinas", "Hertog Jan","Monster400, 434, 282, 255, 275, 88, Zwart","Bavaria","Cola(Donker)","Sprite(Donker)"};
 
 vector <int> monoresults = {};
 vector <int> monodelta = {};
@@ -26,7 +26,9 @@ vector<vector<long int>> bestand = {
 {1171,1136,1119,1171,1136,1119,3}, //(Sinas)
 {94, 69, 54, 66, 46, 16,4}, //(Hertog)
 {111,116,811,815,811,111,5}, // Zwarte monster 
-{41, 60, 69, 26, 40, 40, 6}  // Bavaria 
+{41, 60, 69, 26, 40, 40, 6},  // Bavaria 
+{483, 266, 261, 325, 112, 85,7}, //Cola Donker!
+{400, 434, 282, 255, 275, 88,8} //Sprite Donker
 };
 
 void exit_signal_handler(int signo);
