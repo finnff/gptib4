@@ -51,6 +51,7 @@ void monocompare(vector<int> & id, vector<int> & delta2){
         else{
             cout << "Second Scan Failed."<<endl;
         }
+    }
 }
 
 void blikje(vector<vector< long int>> yeet){
