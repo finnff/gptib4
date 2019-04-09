@@ -37,7 +37,7 @@ void monocompare(vector<int> & id, vector<int> & delta2){
         cout << "Bi-Sensor Conformation: "<<endl;
         cout << namen[id[id.size()-1]]<<endl;
         if((delta2[delta2.size()-1])> 500 || (delta2[delta2.size()-2])>500){
-            cout << "However with High Error!"<<endl;
+            cout << "However with High Error! ("<<delta2[delta2.size()-1]<<" / " << delta2[delta2.size()-2]<<")"<<endl;
         }
     }
     else{
@@ -73,13 +73,6 @@ void rgbaf(vector<int> rgb, bool check){
                                     + ((abs (rgb[1] - bestand[j][4]))*(abs (rgb[1] - bestand[j][4]))) 
                                     + ((abs (rgb[2] - bestand[j][5]))*(abs (rgb[2] - bestand[j][5])))),bestand[j][6]};
             blikkenB.push_back(tmp2);
-            cout << "ΔRB "<< (abs (rgb[0] - bestand[j][3]))<< " with "<< namen[bestand[j][6]]<<endl;
-            cout << "ΔBB "<< (abs (rgb[1] - bestand[j][4]))<< " with "<< namen[bestand[j][6]]<<endl;
-            cout << "ΔGB "<< (abs (rgb[2] - bestand[j][5]))<< " with "<< namen[bestand[j][6]]<<endl;
-            cout << "sum squared Δ "<< (((abs (rgb[0] - bestand[j][3]))*(abs (rgb[0] - bestand[j][3]))) 
-                                    + ((abs (rgb[1] - bestand[j][4]))*(abs (rgb[1] - bestand[j][4]))) 
-                                    + ((abs (rgb[2] - bestand[j][5]))*(abs (rgb[2] - bestand[j][5]))))<<endl;
-            cout << endl;
         }
     }
     
@@ -89,13 +82,7 @@ void rgbaf(vector<int> rgb, bool check){
                                     + ((abs (rgb[1] - bestand[k][1]))*(abs (rgb[1] - bestand[k][1]))) 
                                     + ((abs (rgb[2] - bestand[k][2]))*(abs (rgb[2] - bestand[k][2])))),bestand[k][6]};
             blikkenA.push_back(tmp1);
-            cout << "ΔRA "<< (abs (rgb[0] - bestand[k][0]))<<" with "<< namen[bestand[k][6]]<<endl;
-            cout << "ΔBA "<< (abs (rgb[1] - bestand[k][1]))<<" with "<< namen[bestand[k][6]]<<endl;
-            cout << "ΔGA "<< (abs (rgb[2] - bestand[k][2]))<<" with "<< namen[bestand[k][6]]<<endl;
-            cout << "sum squared Δ "<<(((abs (rgb[0] - bestand[k][0]))*(abs (rgb[0] - bestand[k][0]))) 
-                                    + ((abs (rgb[1] - bestand[k][1]))*(abs (rgb[1] - bestand[k][1]))) 
-                                    + ((abs (rgb[2] - bestand[k][2]))*(abs (rgb[2] - bestand[k][2]))))<<endl;
-            cout << endl;
+            
         }
     }
     blikje(blikkenA);
