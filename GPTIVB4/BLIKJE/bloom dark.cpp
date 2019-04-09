@@ -63,7 +63,7 @@ void rgbaf(vector<int> rgb, bool check){
                                     + ((abs (rgb[1] - bestand[k][1]))*(abs (rgb[1] - bestand[k][1]))) 
                                     + ((abs (rgb[2] - bestand[k][2]))*(abs (rgb[2] - bestand[k][2])))),bestand[k][6]};
             blikkenA.push_back(tmp1);
-        cout<< bestand[j][6]<<"Sensor A "<<endl;
+        cout<< bestand[k][6]<<"Sensor A "<<endl;
         }
     }
     blikje(blikkenA);
