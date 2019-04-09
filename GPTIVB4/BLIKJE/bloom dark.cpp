@@ -57,7 +57,7 @@ void rgbaf(vector<int> rgb, bool check){
             cout << "ΔRB "<< (abs (rgb[0] - bestand[j][3]))<< " with "<< bestand[j][6]<<endl;
             cout << "ΔBB "<< (abs (rgb[1] - bestand[j][4]))<< " with "<< bestand[j][6]<<endl;
             cout << "ΔGB "<< (abs (rgb[2] - bestand[j][5]))<< " with "<< bestand[j][6]<<endl;
-            
+            cout << endl;
         }
     }
     
@@ -70,6 +70,7 @@ void rgbaf(vector<int> rgb, bool check){
             cout << "ΔRA "<< (abs (rgb[0] - bestand[k][0]))<<" with "<< bestand[k][6]<<endl;
             cout << "ΔBA "<< (abs (rgb[1] - bestand[k][1]))<<" with "<< bestand[k][6]<<endl;
             cout << "ΔGA "<< (abs (rgb[2] - bestand[k][2]))<<" with "<< bestand[k][6]<<endl;
+            cout << endl;
         }
     }
     blikje(blikkenA);
