@@ -17,6 +17,7 @@ vector <string> namen {"Cola", "Nep Sprite", "Witte Monster","Sinas", "Hertog Ja
 
 vector <int> monoresults = {};
 vector <int> monodelta = {};
+bool IsRescan = false;
 
 vector<vector<long int>> bestand = {
 {76, 25, 20, 74, 18, 14, 0}, //(Cola)
@@ -29,7 +30,7 @@ vector<vector<long int>> bestand = {
 };
 
 void exit_signal_handler(int signo);
-
+void kleurscanA();
 
 
 void monocompare(vector<int> & id, vector<int> & delta2){
@@ -41,8 +42,15 @@ void monocompare(vector<int> & id, vector<int> & delta2){
         }
     }
     else{
-        cout<< "Sensor Mismatch!"<<endl;
-    } 
+        if(IsRescan == false){
+            IsRescan =true;
+            cout<< "Sensor Mismatch! Rescanning!"<<endl;
+            kleurscanA();
+            monocompare(monoresults,monodelta);   
+        } 
+        else{
+            cout << "Second Scan Failed."<<endl;
+        }
 }
 
 void blikje(vector<vector< long int>> yeet){
