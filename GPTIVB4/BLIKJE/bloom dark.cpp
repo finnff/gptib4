@@ -16,7 +16,7 @@ BrickPi3 BP;
 vector <string> namen {"Cola", "Sprite", "Witte Monster","Sinas", "Hertog Jan","Monster Zwart","Bavaria"};
 
 vector<vector<long int>> bestand = {
-{87, 13, 14, 78, 18, 11, 0}, //(Cola)
+{76, 25, 20, 74, 18, 14, 0}, //(Cola)
 {60, 72, 25, 53, 73, 26,1}, //(sprite)
 {1116,1213,1014,1116,1213,1104,2}, //(witte monster)
 {1171,1136,1119,1171,1136,1119,3}, //(Sinas)
