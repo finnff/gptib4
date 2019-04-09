@@ -29,7 +29,7 @@ vector<vector<long int>> bestand = {
 void exit_signal_handler(int signo);
 
 void blikje(vector<vector< long int>> yeet){
-    int teempo1 = 1000000;
+    int teempo1 = 1000000000;
     int teempo2 = 0;
     for(unsigned int i = 0; i < yeet.size(); i++){
         if (yeet[i][0] < teempo1) {
