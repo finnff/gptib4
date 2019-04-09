@@ -34,10 +34,14 @@ void exit_signal_handler(int signo);
 
 void monocompare(vector<int> & id, vector<int> & delta2){
     if((id[id.size()-1]) == (id[id.size()-2])){
-        cout << "Bi-Sensory Conformation: "<<endl;
-        if((delta2[delta2.size()-1]) == (delta2[delta2.size()-2])){
-            cout << "High Error"<<endl;
+        cout << "Bi-Sensor Conformation: "<<endl;
+        cout << namen[id[id.size()-1]]<<endl;
+        if((delta2[delta2.size()-1])> 500 || (delta2[delta2.size()-2])>500){
+            cout << "However with High Error!"<<endl;
         }
+    }
+    else{
+        cout<< "Sensor Mismatch!"<<endl;
     } 
 }
 
