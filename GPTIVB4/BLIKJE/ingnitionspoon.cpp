@@ -1,5 +1,4 @@
-//For debug purposes testing induvidiual mesured values and deltas.
-
+// Prodcution version with sensor combination code.
 #include "BrickPi3.h"
 #include <iostream>
 #include <unistd.h>
@@ -16,6 +15,9 @@ BrickPi3 BP;
 //vector <vector <long int>> blikken {};
 vector <string> namen {"Cola", "Nep Sprite", "Witte Monster","Sinas", "Hertog Jan","Monster Zwart","Bavaria"};
 
+vector <int> monoresults = {};
+vector <int> monodelta = {};
+
 vector<vector<long int>> bestand = {
 {76, 25, 20, 74, 18, 14, 0}, //(Cola)
 {60, 72, 25, 53, 73, 26,1}, //(nep sprite)
@@ -26,22 +28,34 @@ vector<vector<long int>> bestand = {
 {41, 60, 69, 26, 40, 40, 6}  // Bavaria 
 };
 
- /// RRRRRRR,BBBBB,GGGGG
 void exit_signal_handler(int signo);
+
+
+
+void monocompare(vector<int> & id, vector<int> & delta2){
+    if((id[id.size()-1]) == (id[id.size()-2])){
+        cout << "Bi-Sensory Conformation: "<<endl;
+        if((delta2[delta2.size()-1]) == (delta2[delta2.size()-2])){
+            cout << "High Error"<<endl;
+        }
+    } 
+}
 
 void blikje(vector<vector< long int>> yeet){
     int teempo1 = 1000000000;
     int teempo2 = 0;
     for(unsigned int i = 0; i < yeet.size(); i++){
         if (yeet[i][0] < teempo1) {
-            //cout << yeet[i][0]<< " --- "<< yeet[i][1]<<endl;
             teempo1 = yeet[i][0];
             teempo2 = yeet[i][1];
         }
     }
     if (teempo1 < 999999){
-    cout <<"------------"<< namen[teempo2] << " with error points "<< teempo1 <<"------------"<< endl;
-    }
+        cout <<"------------"<< namen[teempo2] << " with error points "<< teempo1 <<"------------"<< endl;
+        monoresults.push_back(teempo2);
+        monodelta.push_back(teempo1);
+        }
+    
 }
 
 void rgbaf(vector<int> rgb, bool check){
