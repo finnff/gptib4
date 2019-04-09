@@ -57,6 +57,9 @@ void rgbaf(vector<int> rgb, bool check){
             cout << "ΔRB "<< (abs (rgb[0] - bestand[j][3]))<< " with "<< namen[bestand[j][6]]<<endl;
             cout << "ΔBB "<< (abs (rgb[1] - bestand[j][4]))<< " with "<< namen[bestand[j][6]]<<endl;
             cout << "ΔGB "<< (abs (rgb[2] - bestand[j][5]))<< " with "<< namen[bestand[j][6]]<<endl;
+            cout << "Total Δ sqaured"<< (((abs (rgb[0] - bestand[j][3]))*(abs (rgb[0] - bestand[j][3]))) 
+                                    + ((abs (rgb[1] - bestand[j][4]))*(abs (rgb[1] - bestand[j][4]))) 
+                                    + ((abs (rgb[2] - bestand[j][5]))*(abs (rgb[2] - bestand[j][5]))))<<endl;
             cout << endl;
         }
     }
@@ -70,6 +73,9 @@ void rgbaf(vector<int> rgb, bool check){
             cout << "ΔRA "<< (abs (rgb[0] - bestand[k][0]))<<" with "<< namen[bestand[k][6]]<<endl;
             cout << "ΔBA "<< (abs (rgb[1] - bestand[k][1]))<<" with "<< namen[bestand[k][6]]<<endl;
             cout << "ΔGA "<< (abs (rgb[2] - bestand[k][2]))<<" with "<< namen[bestand[k][6]]<<endl;
+            cout << "Total Δ sqaured"<<(((abs (rgb[0] - bestand[k][0]))*(abs (rgb[0] - bestand[k][0]))) 
+                                    + ((abs (rgb[1] - bestand[k][1]))*(abs (rgb[1] - bestand[k][1]))) 
+                                    + ((abs (rgb[2] - bestand[k][2]))*(abs (rgb[2] - bestand[k][2]))))<<endl;
             cout << endl;
         }
     }
