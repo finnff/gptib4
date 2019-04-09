@@ -54,9 +54,9 @@ void rgbaf(vector<int> rgb, bool check){
                                     + ((abs (rgb[1] - bestand[j][4]))*(abs (rgb[1] - bestand[j][4]))) 
                                     + ((abs (rgb[2] - bestand[j][5]))*(abs (rgb[2] - bestand[j][5])))),bestand[j][6]};
             blikkenB.push_back(tmp2);
-            cout << "ΔRB "<< (abs (rgb[0] - bestand[j][3]))<< " with "<< bestand[j][6]<<endl;
-            cout << "ΔBB "<< (abs (rgb[1] - bestand[j][4]))<< " with "<< bestand[j][6]<<endl;
-            cout << "ΔGB "<< (abs (rgb[2] - bestand[j][5]))<< " with "<< bestand[j][6]<<endl;
+            cout << "ΔRB "<< (abs (rgb[0] - bestand[j][3]))<< " with "<< namen[bestand[j][6]]<<endl;
+            cout << "ΔBB "<< (abs (rgb[1] - bestand[j][4]))<< " with "<< namen[bestand[j][6]]<<endl;
+            cout << "ΔGB "<< (abs (rgb[2] - bestand[j][5]))<< " with "<< namen[bestand[j][6]]<<endl;
             cout << endl;
         }
     }
