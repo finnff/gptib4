@@ -13,11 +13,11 @@ BrickPi3 BP;
 // sqrd version  
 
 //vector <vector <long int>> blikken {};
-vector <string> namen {"Cola", "Sprite", "Witte Monster","Sinas", "Hertog Jan","Monster Zwart","Bavaria"};
+vector <string> namen {"Cola", "Nep Sprite", "Witte Monster","Sinas", "Hertog Jan","Monster Zwart","Bavaria"};
 
 vector<vector<long int>> bestand = {
 {76, 25, 20, 74, 18, 14, 0}, //(Cola)
-{60, 72, 25, 53, 73, 26,1}, //(sprite)
+{60, 72, 25, 53, 73, 26,1}, //(nep sprite)
 {1116,1213,1014,1116,1213,1104,2}, //(witte monster)
 {1171,1136,1119,1171,1136,1119,3}, //(Sinas)
 {94, 69, 54, 66, 46, 16,4}, //(Hertog)
@@ -33,7 +33,7 @@ void blikje(vector<vector< long int>> yeet){
     int teempo2 = 0;
     for(unsigned int i = 0; i < yeet.size(); i++){
         if (yeet[i][0] < teempo1) {
-            cout << yeet[i][0]<< " --- "<< yeet[i][1]<<endl;
+            //cout << yeet[i][0]<< " --- "<< yeet[i][1]<<endl;
             teempo1 = yeet[i][0];
             teempo2 = yeet[i][1];
         }
@@ -54,6 +54,10 @@ void rgbaf(vector<int> rgb, bool check){
                                     + ((abs (rgb[1] - bestand[j][4]))*(abs (rgb[1] - bestand[j][4]))) 
                                     + ((abs (rgb[2] - bestand[j][5]))*(abs (rgb[2] - bestand[j][5])))),bestand[j][6]};
             blikkenB.push_back(tmp2);
+            cout << "ΔRB "<< (abs (rgb[0] - bestand[j][3]))<<endl;
+            cout << "ΔBB "<< (abs (rgb[1] - bestand[j][4]))<<endl;
+            cout << "ΔGB "<< (abs (rgb[2] - bestand[j][5]))<<endl;
+            
         }
     }
     
@@ -63,11 +67,12 @@ void rgbaf(vector<int> rgb, bool check){
                                     + ((abs (rgb[1] - bestand[k][1]))*(abs (rgb[1] - bestand[k][1]))) 
                                     + ((abs (rgb[2] - bestand[k][2]))*(abs (rgb[2] - bestand[k][2])))),bestand[k][6]};
             blikkenA.push_back(tmp1);
+            cout << "ΔRA "<< (abs (rgb[0] - bestand[j][0]))<<endl;
+            cout << "ΔBA "<< (abs (rgb[1] - bestand[j][1]))<<endl;
+            cout << "ΔGA "<< (abs (rgb[2] - bestand[j][2]))<<endl;
         }
     }
-    cout << "Blik A:  "<<flush; 
     blikje(blikkenA);
-    cout << "Blik B:  "<<flush; 
     blikje(blikkenB);
 }
 
@@ -94,7 +99,7 @@ void kleurscanA(){
             int ambientB = 0;
             int time = 0;
             int aantal =0;
-            cout<< " Yeet" << endl;
+            cout<< "Scanning: " << endl;
             while(time <= 36){
                 aantal++;
                 redA += Color1.reflected_red;
