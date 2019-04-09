@@ -39,7 +39,7 @@ void blikje(vector<vector< long int>> yeet){
         }
     }
     if (teempo1 < 999999){
-    cout << namen[teempo2] << " with error points "<< teempo1 << endl;
+    cout <<"------------"<< namen[teempo2] << " with error points "<< teempo1 <<"------------"<< endl;
     }
 }
 
