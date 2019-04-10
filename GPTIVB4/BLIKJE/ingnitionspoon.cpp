@@ -207,6 +207,7 @@ void exit_signal_handler(int signo){
 
 
 void startup(){
+    BP.detect();
     cout << "A"<< endl;
     BP.set_sensor_type(PORT_4, SENSOR_TYPE_NXT_ULTRASONIC);
     sensor_ultrasonic_t Ultrasonic4;
@@ -219,8 +220,8 @@ void startup(){
 
 int main(){
     signal(SIGINT, exit_signal_handler); // register the exit function for Ctrl+C
-    kleurscanA();
-    monocompare(monoresults, monodelta);
-        //startup();
+    //kleurscanA();
+    //monocompare(monoresults, monodelta);
+    startup();
 }
 
