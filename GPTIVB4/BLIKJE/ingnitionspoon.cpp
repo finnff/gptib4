@@ -19,6 +19,9 @@ vector <int> monoresults = {};
 vector <int> monodelta = {};
 int IsRescan = 0;
 
+
+
+
 vector<vector<long int>> bestand = {
 {383, 141, 123, 231, 89, 70, 0}, //(Cola)
 {429, 397, 208, 212, 232, 91, 1}, //(nep sprite)
@@ -187,15 +190,28 @@ void exit_signal_handler(int signo){
     }
 }
 
-// void startup(){
-//     if (ulrasoon < 10 cm )
-//     kleurscanA();
-//     monocompare(monoresults, monodelta);
-// }
+
+
+
+void startup(){
+    cout << "A"<< endl;
+    BP.set_sensor_type(PORT_3, SENSOR_TYPE_NXT_ULTRASONIC);
+    sensor_ultrasonic_t Ultrasonic3;
+    if (BP.get_sensor(PORT_3, Ultrasonic3) == 0) {// afstand checken
+    cout << "A"<< endl;
+        while (true){
+            cout << "A"<< endl;
+            cout << Ultrasonic3.cm << endl;
+        }
+    }
+    //kleurscanA();
+    //monocompare(monoresults, monodelta);
+}
 
 int main(){
     signal(SIGINT, exit_signal_handler); // register the exit function for Ctrl+C
-    kleurscanA();
-    monocompare(monoresults, monodelta);
+//     kleurscanA();
+//     monocompare(monoresults, monodelta);
+        startup();
 }
 
