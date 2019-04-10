@@ -59,6 +59,8 @@ void monocompare(vector<int> & id, vector<int> & delta2){
         if((delta2[delta2.size()-1])> 500 || (delta2[delta2.size()-2])>500){
             cout << "However with High Error! ("<<delta2[delta2.size()-1]<<" / " << delta2[delta2.size()-2]<<")"<<endl;
         }
+        sleep(2);
+        startup();
     }
     else{
         if(IsRescan <4){
@@ -229,8 +231,6 @@ void startup(){
 
 int main(){
     signal(SIGINT, exit_signal_handler); // register the exit function for Ctrl+C
-    //kleurscanA();
-    //monocompare(monoresults, monodelta);
     startup();
 }
 
