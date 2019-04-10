@@ -25,23 +25,25 @@ int audioID;
 
 
 vector<vector<long int>> bestand = {
-{383, 141, 123, 231, 89, 70, 0}, //(Cola)
-{429, 397, 208, 212, 232, 91, 1}, //(nep sprite)
+{253, 98, 80, 165, 49, 35, 0}, //(Cola)
+{305, 259, 121, 126, 137, 43,  1}, //(nep sprite)
 {1116,1213,1014,1116,1213,1104,2}, //(witte monster)
 {1171,1136,1119,1171,1136,1119,3}, //(Sinas)
 {530, 336, 182, 214, 133, 61, 4}, //(Hertog)
 {111,116,811,815,811,111,5}, // Zwarte monster 
 {289, 270, 277, 99, 126, 126, 6},  // Bavaria 
-{340, 357, 362, 118, 169, 189, 7}  // Pepsi
-//{483, 266, 261, 325, 112, 85,8}, //Cola Donker!
-//{400, 434, 282, 255, 275, 88,9} //Sprite Donker
+{340, 357, 362, 118, 169, 189, 7},  // Pepsi
+{340, 357, 362, 118, 169, 189, 8},  // Heniken
+{340, 357, 362, 118, 169, 189, 9},  //  Export
+{340, 357, 362, 118, 169, 189, 10},  // De Klok
+{340, 357, 362, 118, 169, 189, 11},  // grolsch
 };
 
 void exit_signal_handler(int signo);
 void kleurscanA();
 void startup();
 
-void playsound(){ // deze functie roept een audio file aan doormiddel van een system call.
+void playsound(){
     string tmp1 = to_string(audioID);
     string call = "omxplayer /home/pi/gptib4/GPTIVB4/BLIKJE/audio/";
     tmp1 = tmp1 + ".ogg";
@@ -56,12 +58,12 @@ void monocompare(vector<int> & id, vector<int> & delta2){
         cout << "Bi-Sensor Conformation: "<<endl;
         cout << namen[id[id.size()-1]]<<endl;
         cout << endl;
-        playsound();
+        //playsound();
         if((delta2[delta2.size()-1])> 500 || (delta2[delta2.size()-2])>500){
             cout << "However with High Error! ("<<delta2[delta2.size()-1]<<" / " << delta2[delta2.size()-2]<<")"<<endl;
         }
-        sleep(5);
-        startup();
+        //sleep(5);
+        //startup();
     }
     else{
         if(IsRescan <4){
@@ -232,6 +234,7 @@ void startup(){
 
 int main(){
     signal(SIGINT, exit_signal_handler); // register the exit function for Ctrl+C
-    startup();
+    kleurscanA();
+    monocompare(monoresults, monodelta);
 }
 
