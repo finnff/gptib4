@@ -17,7 +17,7 @@ vector <string> namen {"Cola", "Nep Sprite", "Witte Monster","Sinas", "Hertog Ja
 
 vector <int> monoresults = {};
 vector <int> monodelta = {};
-bool IsRescan = false;
+int IsRescan = 0;
 
 vector<vector<long int>> bestand = {
 {174, 75, 66, 189, 58, 43, 0}, //(Cola)
@@ -45,14 +45,15 @@ void monocompare(vector<int> & id, vector<int> & delta2){
         }
     }
     else{
-        if(IsRescan == false){
-            IsRescan =true;
+        if(IsRescan <4){
+            IsRescan++;
             cout<< "Sensor Mismatch! Rescanning!"<<endl;
+            cout<<"Rescan #: "<< IsRescan << endl;
             kleurscanA();
             monocompare(monoresults,monodelta);   
         } 
         else{
-            cout << "Second Scan Failed."<<endl;
+            cout << "Rescans Failed."<<endl;
         }
     }
 }
