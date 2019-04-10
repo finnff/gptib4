@@ -41,7 +41,7 @@ void exit_signal_handler(int signo);
 void kleurscanA();
 
 void playsound(){
-    string tmp1 = to_string(audioID)
+    string tmp1 = to_string(audioID);
     string call = "omxplayer /home/pi/gptib4/GPTIVB4/BLIKJE/audio/";
     tmp1 = tmp1 + ".ogg";
     string newcall = call + tmp1;
