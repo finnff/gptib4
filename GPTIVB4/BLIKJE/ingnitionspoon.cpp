@@ -219,6 +219,7 @@ void startup(){
                 monocompare(monoresults, monodelta);
             }
             else{
+                cout<< "sleeping"<< endl;
                 sleep(1);
             }
         }   
