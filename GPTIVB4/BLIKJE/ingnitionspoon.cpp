@@ -60,7 +60,7 @@ void monocompare(vector<int> & id, vector<int> & delta2){
         if((delta2[delta2.size()-1])> 500 || (delta2[delta2.size()-2])>500){
             cout << "However with High Error! ("<<delta2[delta2.size()-1]<<" / " << delta2[delta2.size()-2]<<")"<<endl;
         }
-        sleep(2);
+        sleep(5);
         startup();
     }
     else{
@@ -218,7 +218,7 @@ void startup(){
         while(BP.get_sensor(PORT_4, Ultrasonic2) == 0){
             if (Ultrasonic2.cm < 8){
                 cout << "Detected " << endl;
-                sleep(2);
+                sleep(3);
                 kleurscanA();
                 monocompare(monoresults, monodelta);
             }
