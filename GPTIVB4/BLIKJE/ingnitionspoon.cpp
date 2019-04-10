@@ -208,11 +208,10 @@ void exit_signal_handler(int signo){
 
 void startup(){
     BP.detect();
-    cout << "A"<< endl;
     BP.set_sensor_type(PORT_4, SENSOR_TYPE_NXT_ULTRASONIC);
-    sensor_ultrasonic_t Ultrasonic4;
-    if(BP.get_sensor(PORT_2, Ultrasonic4) == 0){
-		cout << "Ultrasonic sensor (S2): "   << Ultrasonic4.cm << "cm" << endl;
+    sensor_ultrasonic_t Ultrasonic2;
+    while(BP.get_sensor(PORT_2, Ultrasonic2) == 0){
+        cout << "Ultrasonic sensor (S2): "   << Ultrasonic2.cm << "cm" << endl;
     }
     //kleurscanA();
     //monocompare(monoresults, monodelta);
