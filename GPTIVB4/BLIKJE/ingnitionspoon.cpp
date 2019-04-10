@@ -210,12 +210,8 @@ void startup(){
     cout << "A"<< endl;
     BP.set_sensor_type(PORT_4, SENSOR_TYPE_NXT_ULTRASONIC);
     sensor_ultrasonic_t Ultrasonic4;
-    if (BP.get_sensor(PORT_4, Ultrasonic4) == 0) {// afstand checken
-    cout << "B"<< endl;
-        while (true){
-            cout << "C"<< endl;
-            cout << Ultrasonic4.cm << endl;
-        }
+    if(BP.get_sensor(PORT_2, Ultrasonic4) == 0){
+		cout << "Ultrasonic sensor (S2): "   << Ultrasonic4.cm << "cm" << endl;
     }
     //kleurscanA();
     //monocompare(monoresults, monodelta);
