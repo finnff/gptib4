@@ -63,7 +63,7 @@ void monocompare(vector<int> & id, vector<int> & delta2){
         cout << namen[id[id.size()-1]]<<endl;
         cout << endl;
         playsound();
-        if((delta2[delta2.size()-1])> 500 || (delta2[delta2.size()-2])>500){
+        if((delta2[delta2.size()-1])> 1000 || (delta2[delta2.size()-2])>1000){
             cout << "However with High Error! ("<<delta2[delta2.size()-1]<<" / " << delta2[delta2.size()-2]<<")"<<endl;
         }
         int IsRescan = 0;
