@@ -194,6 +194,7 @@ void exit_signal_handler(int signo){
 
 int main(){
     signal(SIGINT, exit_signal_handler); // register the exit function for Ctrl+C
-
+    kleurscanA();
+    monocompare(monoresults, monodelta);
 }
 
