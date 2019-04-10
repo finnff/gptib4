@@ -13,22 +13,23 @@ using namespace std;
 BrickPi3 BP;
 
 //vector <vector <long int>> blikken {};
-vector <string> namen {"Cola", "Nep Sprite", "Witte Monster","Sinas", "Hertog Jan","Monster400, 434, 282, 255, 275, 88, Zwart","Bavaria","Cola(Donker)","Sprite(Donker)"};
+vector <string> namen {"Cola", "Nep Sprite", "Witte Monster","Sinas", "Hertog Jan","MonsterZwart","Bavaria","Pepsi", "Cola(Donker)","Sprite(Donker)"};
 
 vector <int> monoresults = {};
 vector <int> monodelta = {};
 bool IsRescan = false;
 
 vector<vector<long int>> bestand = {
-{76, 25, 20, 74, 18, 14, 0}, //(Cola)
-{60, 72, 25, 53, 73, 26,1}, //(nep sprite)
+{174, 75, 66, 189, 58, 43, 0}, //(Cola)
+{257, 234, 120, 150, 171, 56, 1}, //(nep sprite)
 {1116,1213,1014,1116,1213,1104,2}, //(witte monster)
 {1171,1136,1119,1171,1136,1119,3}, //(Sinas)
-{94, 69, 54, 66, 46, 16,4}, //(Hertog)
+{315, 180, 89, 161, 92, 39, 4}, //(Hertog)
 {111,116,811,815,811,111,5}, // Zwarte monster 
-{41, 60, 69, 26, 40, 40, 6},  // Bavaria 
-{483, 266, 261, 325, 112, 85,7}, //Cola Donker!
-{400, 434, 282, 255, 275, 88,8} //Sprite Donker
+{191, 189, 185, 85, 108, 101, 6},  // Bavaria 
+{156, 207, 213, 100, 140, 149,7}  // Pepsi
+//{483, 266, 261, 325, 112, 85,8}, //Cola Donker!
+//{400, 434, 282, 255, 275, 88,9} //Sprite Donker
 };
 
 void exit_signal_handler(int signo);
@@ -185,9 +186,14 @@ void exit_signal_handler(int signo){
     }
 }
 
+// void startup(){
+//     if (ulrasoon < 10 cm )
+//     kleurscanA();
+//     monocompare(monoresults, monodelta);
+// }
+
 int main(){
     signal(SIGINT, exit_signal_handler); // register the exit function for Ctrl+C
-    kleurscanA();
-    monocompare(monoresults, monodelta);
+
 }
 
