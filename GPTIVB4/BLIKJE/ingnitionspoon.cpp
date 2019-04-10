@@ -45,8 +45,10 @@ void startup();
 
 void playsound(){ // deze functie roept een audio file aan doormiddel van een system call.
     string tmp1 = to_string(audioID);
+    cout << "seg2"<< endl;
     string call = "omxplayer /home/pi/gptib4/GPTIVB4/BLIKJE/audio/";
     tmp1 = tmp1 + ".ogg";
+    cout << "seg2"<< endl;
     string newcall = call + tmp1;
     cout << newcall << endl;
     system(newcall.c_str());
@@ -87,6 +89,7 @@ void blikje(vector<vector< long int>> yeet){
             teempo1 = yeet[i][0];
             teempo2 = yeet[i][1];
             audioID = teempo2;
+            cout << "seg1"<< endl;
         }
     }
     if (teempo1 < 999999){
