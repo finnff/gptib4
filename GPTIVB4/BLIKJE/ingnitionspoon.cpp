@@ -56,6 +56,7 @@ void playsound(){ // deze functie roept een audio file aan doormiddel van een sy
 
 
 void monocompare(vector<int> & id, vector<int> & delta2){
+    cout << "segHAsHDHASH"<< endl;
     if((id[id.size()-1]) == (id[id.size()-2])){
         cout << "Bi-Sensor Conformation: "<<endl;
         cout << namen[id[id.size()-1]]<<endl;
@@ -89,7 +90,6 @@ void blikje(vector<vector< long int>> yeet){
             teempo1 = yeet[i][0];
             teempo2 = yeet[i][1];
             audioID = teempo2;
-            cout << "seg1"<< endl;
         }
     }
     if (teempo1 < 999999){
