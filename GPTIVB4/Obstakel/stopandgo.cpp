@@ -29,14 +29,14 @@ int main(){
 
     BP.offset_motor_encoder(PORT_A, BP.get_motor_encoder(PORT_A));
     BP.offset_motor_encoder(PORT_B, BP.get_motor_encoder(PORT_B));
-    BP.set_sensor_type(PORT_2, SENSOR_TYPE_NXT_ULTRASONIC);
+    BP.set_sensor_type(PORT_4, SENSOR_TYPE_NXT_ULTRASONIC);
     sensor_ultrasonic_t Ultrasonic2;
 
 
     float curr_distance =15.0; // start distance;
 
     while(true){
-        while(BP.get_sensor(PORT_2, Ultrasonic2) == 0){
+        while(BP.get_sensor(PORT_4, Ultrasonic2) == 0){
 		    cout << "Ultrasonic sensor (S2): "   << Ultrasonic2.cm << "cm" << endl;
             curr_distance = Ultrasonic2.cm;
             if(curr_distance>10){//drive forward
