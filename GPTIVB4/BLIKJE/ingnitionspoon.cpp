@@ -53,8 +53,9 @@ void playsound(){
 void monocompare(vector<int> & id, vector<int> & delta2){
     if((id[id.size()-1]) == (id[id.size()-2])){
         cout << "Bi-Sensor Conformation: "<<endl;
-        playsound();
         cout << namen[id[id.size()-1]]<<endl;
+        cout << endl;
+        playsound();
         if((delta2[delta2.size()-1])> 500 || (delta2[delta2.size()-2])>500){
             cout << "However with High Error! ("<<delta2[delta2.size()-1]<<" / " << delta2[delta2.size()-2]<<")"<<endl;
         }
