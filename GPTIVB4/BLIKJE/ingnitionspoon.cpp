@@ -198,9 +198,9 @@ void startup(){
     BP.set_sensor_type(PORT_4, SENSOR_TYPE_NXT_ULTRASONIC);
     sensor_ultrasonic_t Ultrasonic4;
     if (BP.get_sensor(PORT_4, Ultrasonic4) == 0) {// afstand checken
-    cout << "A"<< endl;
+    cout << "B"<< endl;
         while (true){
-            cout << "A"<< endl;
+            cout << "C"<< endl;
             cout << Ultrasonic4.cm << endl;
         }
     }
