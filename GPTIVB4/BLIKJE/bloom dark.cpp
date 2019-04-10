@@ -17,13 +17,18 @@ BrickPi3 BP;
 vector <string> namen {"Cola", "Nep Sprite", "Witte Monster","Sinas", "Hertog Jan","Monster Zwart","Bavaria"};
 
 vector<vector<long int>> bestand = {
-{76, 25, 20, 74, 18, 14, 0}, //(Cola)
-{60, 72, 25, 53, 73, 26,1}, //(nep sprite)
-{1116,1213,1014,1116,1213,1104,2}, //(witte monster)
-{1171,1136,1119,1171,1136,1119,3}, //(Sinas)
-{94, 69, 54, 66, 46, 16,4}, //(Hertog)
-{111,116,811,815,811,111,5}, // Zwarte monster 
-{41, 60, 69, 26, 40, 40, 6}  // Bavaria 
+{253, 98, 80, 165, 49, 35, 0}, //(Cola)
+{305, 259, 121, 126, 137, 43,  1}, //(nep sprite)
+{270, 215, 187, 122, 104, 73, 2}, //(witte monster)
+{337, 162, 96, 157, 68, 28, 3}, //(Sinas)
+{398, 207, 97, 139, 78, 32, 4}, //(Hertog)
+{209, 167, 120, 63, 64, 34, 5}, // Zwarte monster 
+{170, 143, 155, 50, 66, 63, 6},  // Bavaria 
+{125, 187, 206, 111, 79, 75, 7},  // Pepsi
+{132, 195, 98, 86, 160, 62, 8},  // Heniken
+{122, 79, 56, 99, 82, 45, 9},  //  Export
+{258, 200, 131, 162, 149, 104,10},  // De Klok
+{96, 105, 55, 84, 110, 49,11}  // grolsch
 };
 
  /// RRRRRRR,BBBBB,GGGGG
