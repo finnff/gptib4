@@ -41,10 +41,10 @@ void exit_signal_handler(int signo);
 void kleurscanA();
 
 void playsound(){
-    str = to_string(audioID)
+    string tmp1 = to_string(audioID)
     string call = "omxplayer /home/pi/gptib4/GPTIVB4/BLIKJE/audio/";
-    str = str + ".ogg";
-    string newcall = call + str;
+    tmp1 = tmp1 + ".ogg";
+    string newcall = call + tmp1;
     cout << newcall << endl;
     system(newcall.c_str());
 }
