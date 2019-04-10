@@ -18,6 +18,8 @@ vector <string> namen {"Cola", "Nep Sprite", "Witte Monster","Sinas", "Hertog Ja
 vector <int> monoresults = {};
 vector <int> monodelta = {};
 int IsRescan = 0;
+int audioID;
+
 
 
 
@@ -68,6 +70,7 @@ void blikje(vector<vector< long int>> yeet){
         if (yeet[i][0] < teempo1) {
             teempo1 = yeet[i][0];
             teempo2 = yeet[i][1];
+            audioID = teempo2;
         }
     }
     if (teempo1 < 999999){
