@@ -140,3 +140,22 @@ int main(){
     // rgbaf(gemscan);
     
 }
+//  later checken of dit werkt
+
+    // char input;
+    // cout << "zwart-wit scan: z" << endl;
+    // cout << "blik scan: b" << endl;
+    // cout << "kies een soort scan: " << flush;
+    // cin >> input;
+    // if (input = 'z') {
+    //     zwart = kleurscan();
+    //     for(unsigned int i = 0; i < 6; i++){
+    //         cout << "zwart: " << zwart[i] << endl;
+    //     }
+    //     sleep(5);
+    //     wit = kleurscan();
+    //     for(unsigned int i = 0; i < 6; i++){
+    //         cout << "wit: " << wit[i] << endl;
+    //     }
+
+    // }
