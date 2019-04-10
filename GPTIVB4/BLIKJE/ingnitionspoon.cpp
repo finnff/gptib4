@@ -194,10 +194,13 @@ void exit_signal_handler(int signo){
 
 
 void startup(){
+    cout << "A"<< endl;
     BP.set_sensor_type(PORT_3, SENSOR_TYPE_NXT_ULTRASONIC);
     sensor_ultrasonic_t Ultrasonic3;
     if (BP.get_sensor(PORT_3, Ultrasonic3) == 0) {// afstand checken
+    cout << "A"<< endl;
         while (true){
+            cout << "A"<< endl;
             cout << Ultrasonic3.cm << endl;
         }
     }
