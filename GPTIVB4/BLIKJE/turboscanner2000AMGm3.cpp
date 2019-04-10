@@ -41,14 +41,14 @@ void exit_signal_handler(int signo);
 void kleurscanA();
 void startup();
 
-void playsound(){
-    string tmp1 = to_string(audioID);
-    string call = "omxplayer /home/pi/gptib4/GPTIVB4/BLIKJE/audio/";
-    tmp1 = tmp1 + ".ogg";
-    string newcall = call + tmp1;
-    cout << newcall << endl;
-    system(newcall.c_str());
-}
+// void playsound(){
+//     string tmp1 = to_string(audioID);
+//     string call = "omxplayer /home/pi/gptib4/GPTIVB4/BLIKJE/audio/";
+//     tmp1 = tmp1 + ".ogg";
+//     string newcall = call + tmp1;
+//     cout << newcall << endl;
+//     system(newcall.c_str());
+// }
 
 
 void monocompare(vector<int> & id, vector<int> & delta2){
@@ -56,7 +56,7 @@ void monocompare(vector<int> & id, vector<int> & delta2){
         cout << "Bi-Sensor Conformation: "<<endl;
         cout << namen[id[id.size()-1]]<<endl;
         cout << endl;
-        playsound();
+        //playsound();
         if((delta2[delta2.size()-1])> 500 || (delta2[delta2.size()-2])>500){
             cout << "However with High Error! ("<<delta2[delta2.size()-1]<<" / " << delta2[delta2.size()-2]<<")"<<endl;
         }
