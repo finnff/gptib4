@@ -211,12 +211,18 @@ void startup(){
     BP.set_sensor_type(PORT_4, SENSOR_TYPE_NXT_ULTRASONIC);
     sensor_ultrasonic_t Ultrasonic2;
     while(true){
-    while(BP.get_sensor(PORT_4, Ultrasonic2) == 0){
-        cout << "Ultrasonic sensor (S2): "   << Ultrasonic2.cm << "cm" << endl;
+        while(BP.get_sensor(PORT_4, Ultrasonic2) == 0){
+            if (Ultrasonic2.cm < 8){
+                cout << "Detected " << endl;
+                sleep(2);
+                kleurscanA();
+                monocompare(monoresults, monodelta);
+            }
+            else{
+                sleep(1);
+            }
+        }   
     }
-    }
-    //kleurscanA();
-    //monocompare(monoresults, monodelta);
 }
 
 int main(){
