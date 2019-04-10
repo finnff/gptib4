@@ -4,6 +4,8 @@
 #include <signal.h>
 #include <iomanip>
 
+using namespace std;
+
 BrickPi3 BP; // Create a BrickPi3 instance with the default address of 1
 BP.detect(); // Make sure that the BrickPi3 is communicating and that the firmware is compatible with the drivers.
 BP.set_sensor_type(PORT_3, SENSOR_TYPE_NXT_ULTRASONIC);
