@@ -3,5 +3,5 @@
 using namespace std;
 
 int main(){
-    system("omxplayer /audio/Cola.ogg");
+    system("omxplayer /home/pi/gptib4/GPTIVB4/BLIKJE/audio/Cola.ogg");
 }
