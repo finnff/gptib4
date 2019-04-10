@@ -41,7 +41,7 @@ void exit_signal_handler(int signo);
 void kleurscanA();
 void startup();
 
-void playsound(){
+void playsound(){ // deze functie roept een audio file aan doormiddel van een system call.
     string tmp1 = to_string(audioID);
     string call = "omxplayer /home/pi/gptib4/GPTIVB4/BLIKJE/audio/";
     tmp1 = tmp1 + ".ogg";
