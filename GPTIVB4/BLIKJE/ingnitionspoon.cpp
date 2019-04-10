@@ -40,10 +40,20 @@ vector<vector<long int>> bestand = {
 void exit_signal_handler(int signo);
 void kleurscanA();
 
+void playsound(){
+    str = to_string(audioID)
+    string call = "omxplayer /home/pi/gptib4/GPTIVB4/BLIKJE/audio/";
+    str = str + ".ogg";
+    string newcall = call + str;
+    cout << newcall << endl;
+    system(newcall.c_str());
+}
+
 
 void monocompare(vector<int> & id, vector<int> & delta2){
     if((id[id.size()-1]) == (id[id.size()-2])){
         cout << "Bi-Sensor Conformation: "<<endl;
+        playsound();
         cout << namen[id[id.size()-1]]<<endl;
         if((delta2[delta2.size()-1])> 500 || (delta2[delta2.size()-2])>500){
             cout << "However with High Error! ("<<delta2[delta2.size()-1]<<" / " << delta2[delta2.size()-2]<<")"<<endl;
