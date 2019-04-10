@@ -39,6 +39,7 @@ vector<vector<long int>> bestand = {
 
 void exit_signal_handler(int signo);
 void kleurscanA();
+void startup();
 
 void playsound(){
     string tmp1 = to_string(audioID);
