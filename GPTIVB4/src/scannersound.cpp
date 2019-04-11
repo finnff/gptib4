@@ -56,26 +56,26 @@ void playsound(){ // deze functie roept een audio file aan doormiddel van een sy
 }
 
 
-void monocompare(vector<int> & id, vector<int> & delta2){
+void monocompare(vector<int> & id, vector<int> & delta2){ // 
     cout << "segHAsHDHASH"<< endl;
-    if((id[id.size()-1]) == (id[id.size()-2])){
+    if((id[id.size()-1]) == (id[id.size()-2])){ // vergelijk  match ID van laatste meeting Sensor A met Sensor B.
         cout << "Bi-Sensor Conformation: "<<endl;
         cout << namen[id[id.size()-1]]<<endl;
         cout << endl;
         playsound();
-        if((delta2[delta2.size()-1])> 1000 || (delta2[delta2.size()-2])>1000){
-            cout << "However with High Error! ("<<delta2[delta2.size()-1]<<" / " << delta2[delta2.size()-2]<<")"<<endl;
+        if((delta2[delta2.size()-1])> 1000 || (delta2[delta2.size()-2])>1000){ // waarschuwing bij hooge fout marge
+            cout << "However with High Error! ("<<delta2[delta2.size()-1]<<" / " << delta2[delta2.size()-2]<<")"<<endl; 
         }
-        int IsRescan = 0;
+        int IsRescan = 0; // reset global varible voor recusieve calls.
         sleep(5);
         startup();
     }
-    else{
+    else{ // Als sensor A / B geen match is:
         if(IsRescan <4){
             IsRescan++;
             cout<< "Sensor Mismatch! Rescanning!"<<endl;
             cout<<"Rescan #: "<< IsRescan << endl;
-            kleurscanA();
+            kleurscanA(); // Recursief opnieuw scannen.
             monocompare(monoresults,monodelta);   
         } 
         else{
@@ -84,7 +84,7 @@ void monocompare(vector<int> & id, vector<int> & delta2){
     }
 }
 
-void blikje(vector<vector< long int>> yeet){
+void blikje(vector<vector< long int>> yeet){ //vergelijkt matches tot  laagste fout marge is gevonden.
     int teempo1 = 1000000000;
     int teempo2 = 0;
     for(unsigned int i = 0; i < yeet.size(); i++){
@@ -97,9 +97,9 @@ void blikje(vector<vector< long int>> yeet){
     if (teempo1 < 999999){
         cout <<"------------"<< namen[teempo2] << " with error points "<< teempo1 <<"------------"<< endl;
         monoresults.push_back(teempo2);
-        monodelta.push_back(teempo1);
+        monodelta.push_back(teempo1); // vectors nodig voor monocompare.
         }
-    
+    // Einde van Kleurscan funtie.
 }
 
 void rgbaf(vector<int> rgb, bool check){
@@ -107,12 +107,12 @@ void rgbaf(vector<int> rgb, bool check){
     vector <vector <long int>> blikkenB {};
     vector<long int> tmp2;
     vector<long int> tmp1;
-    if(check == true){
+    if(check == true){ //Bool check is voor sensor A of B
         for(unsigned int j = 0; j < bestand.size(); j++){
             vector<long int> tmp2 = {(((abs (rgb[0] - bestand[j][3]))*(abs (rgb[0] - bestand[j][3]))) 
                                     + ((abs (rgb[1] - bestand[j][4]))*(abs (rgb[1] - bestand[j][4]))) 
                                     + ((abs (rgb[2] - bestand[j][5]))*(abs (rgb[2] - bestand[j][5])))),bestand[j][6]};
-            blikkenB.push_back(tmp2);
+            blikkenB.push_back(tmp2); // Som van kwadraaten van verschil tussen onze meeting en wat in de database staat.
         }
     }
     
@@ -130,7 +130,7 @@ void rgbaf(vector<int> rgb, bool check){
 }
 
 
-void kleurscanA(){
+void kleurscanA(){ //scan functie die beide blikken tegelijk scant, Op basis van RGB-Ambient t.o.v. Zwart-wit calibratie
     BP.detect();
     BP.set_sensor_type(PORT_1, SENSOR_TYPE_NXT_COLOR_FULL);
     BP.set_sensor_type(PORT_2, SENSOR_TYPE_NXT_COLOR_FULL);
@@ -217,7 +217,7 @@ void exit_signal_handler(int signo){
 
 
 
-void startup(){
+void startup(){ // Detecie functie die slaapt als er geen blik in de scanner zit, en scanned als er een blik wordt in geplaatst.
     BP.detect();
     BP.set_sensor_type(PORT_4, SENSOR_TYPE_NXT_ULTRASONIC);
     sensor_ultrasonic_t Ultrasonic2;
